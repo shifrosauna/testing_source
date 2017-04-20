@@ -1,0 +1,150 @@
+<div class="row  bg-white" data-ng-controller="MailCtrl" data-app-layout-application>
+    <div class="column col-md-4 col-sm-5 box-border-r" data-ng-hide="$state.is('mail.view') && $root.mobileLayout">
+        <div class="table-display">
+            <div class="input-holder bg-white">
+                <i class="fa fa-search fa-2x tosearch"></i>
+                <input type="text" class="form-control no-border no-bg no-shadow" placeholder="Search..." data-ng-model="searchText">
+            </div>
+            <div class="box-widget-header clearfix">
+                <div class=" pull-left">
+                    <a data-ng-click="setEdit()">
+                        <span data-ng-show="!selectMails">Edit</span>
+                        <span data-ng-show="selectMails">Cancel</span>
+                    </a>
+                </div>
+                <div class="dropdown pull-right" uib-dropdown data-ng-show="!selectMails">
+                    <a class="dropdown-toggle" uib-dropdown-toggle>
+                        Order by {{order.by}} 
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul uib-dropdown-menu class="dropdown-menu dropdown-alt" role="menu">
+                        <li ng-repeat="orderProp in orderProperties" data-ng-click="setOrderProperty(orderProp)" data-ng-class="{active:orderProp == order.by}">
+                            <a>{{orderProp}}</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li data-ng-class="{active:order.sort}" data-ng-click="order.sort = true"><a>asc</a></li>
+                        <li data-ng-class="{active:!order.sort}" data-ng-click="order.sort = false"><a>desc</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown pull-right" uib-dropdown data-ng-show="selectMails">
+                    <a class="dropdown-toggle" uib-dropdown-toggle>
+                        Operation
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul uib-dropdown-menu class="dropdown-menu dropdown-alt" role="menu">
+                        <li data-ng-click="setEmails('read',false)">
+                            <a>Mark as unread</a>
+                        </li>
+                        <li data-ng-click="setEmails('flag','primary')">
+                            <a>Mark as important</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li>
+                            <a data-ng-click="delEmail()">Move: VIP</a>
+                        </li>
+                        <li>
+                            <a data-ng-click="delEmail()">Move: Personal</a>
+                        </li>
+                        <li>
+                            <a data-ng-click="delEmail()">Move: Junk</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li>
+                            <a data-ng-click="delEmail()">Trash</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box" data-ng-include src="'views/mail/list.html'"></div>
+                </div>
+            </div>
+            <div class="box-widget-footer clearfix border-xs-sep-b">
+                <div class=" pull-left">
+                    <a>
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                    <a>
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </div>
+                <div class=" pull-right">
+
+                    <a>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    <a>
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column col-md-8 col-sm-7" data-ng-hide="$state.is('mail.inbox') && $root.mobileLayout">
+        <div class="table-display">
+            <div class="p-10 visible-xs box-border-b-light bg-light lt">
+                <a ui-sref="mail.inbox">
+                    <span><i class="fa fa-angle-left fa-fw"></i> back</span>
+                </a>
+            </div>
+            <ul class="nav navbar-tools bg-light lt b-b-b-l" data-ng-show="!selectMails">
+                <li uib-dropdown>
+                    <a class="dropdown-toggle btn" uib-dropdown-toggle>
+                        <i class="fa fa-reply fa-fw"></i>
+                    </a>    
+                    <ul uib-dropdown-menu class="dropdown-menu">
+                        <li><a data-ng-click="composeEmail()">Reply</a></li>
+                        <li><a data-ng-click="composeEmail()">Forward</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown>
+                    <a class="dropdown-toggle btn" uib-dropdown-toggle>
+                        <i class="fa fa-flag-o fa-fw"></i>
+                    </a>
+                    <ul uib-dropdown-menu class="dropdown-menu">
+                        <li>
+                            <a class="" data-ng-show="selectedEmail.flag.length" data-ng-click="setFlag('')">Unflag</a>
+                            <a class="" data-ng-show="!selectedEmail.flag.length" data-ng-click="setFlag('primary')">Flag</a>
+                        </li>
+                        <li data-ng-show="selectedEmail.read">
+                            <a data-ng-click="markUnread()">Mark as unread</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a data-ng-click="setFlag('important')">Mark as important</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a data-ng-click="delEmail()" class="btn" ng-disabled="!selectedEmail || selectMails">
+                        <i class="fa fa-trash-o fa-fw"></i>
+                    </a>
+                </li>
+                <li uib-dropdown>
+                    <a class="dropdown-toggle btn" uib-dropdown-toggle>
+                        <i class="fa fa-folder-o fa-fw"></i>
+                    </a>
+                    <ul uib-dropdown-menu class="dropdown-menu">
+                        <li><a data-ng-click="delEmail()">VIP</a></li>
+                        <li><a data-ng-click="delEmail()">Archive</a></li>
+                        <li><a data-ng-click="delEmail()">Junk</a></li>
+                        <li class="divider"></li>
+                        <li><a data-ng-click="delEmail()">Personal</a></li>
+                        <li><a data-ng-click="delEmail()">Home</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box bg-white">
+                        <div ui-view="contentView" class="p-20 relative"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-widget-footer clearfix text-center" data-ng-if="selectMails" style="padding:7px;">
+                <span>You selected {{selectedMailsCounter}} mail.</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="task-list-name" data-ng-if="!list.edited" data-ng-class="{solved:!list.todos.length && list.completed.length}">
+    <span data-ng-show="!list.todos.length && list.completed.length"><i class="fa fa-check"></i></span>
+    {{list.list_name}} 
+    <a class=" btn-link no-p no-m" data-ng-click="editList(list)"><i class="fa fa-edit"></i></a> 
+    <a class=" btn-link no-p no-m pull-right" data-ng-click="showCompleted(list)" title="show completed">
+        <span data-ng-show="!list.showCompleted"><i class="fa fa-eye-slash"></i></span>
+        <span data-ng-show="list.showCompleted"><i class="fa fa-eye"></i></span>
+    </a>
+</div>
+<div data-ng-if="list.edited" class="m-t-10 task-add-form">
+    <form ng-submit="submitEditList()">
+        <div class="input-group flat">     
+            <input type="text" class="form-control flat input-md header-height " placeholder="What needs to be done?" data-ng-model="list.list_name" focus-me="list.edited">
+            <span class="h-100 no-m input-group-btn box-border-l-light bg-white">
+                <button class="btn no-bg" type="button" data-ng-click="submitEditList()"><i class="fa fa-check"></i></button>
+                <button class="btn no-bg" type="button" data-ng-click="deleteList(list)"><i class="fa fa-times"></i></button>
+            </span>
+        </div>
+    </form>
+</div>
+<div class="alert no-m alert-bordered alert-line text-italic no-p-t-b text-muted" data-ng-if="!list.todos.length && !list.completed.length && !list.addMode">Empty task list</div>
+<ul class="task-list" ui-sortable="sortableOptions" data-ng-model="list.todos" data-ng-class="{'no-border-i':!list.todos.length}">
+    <li ng-repeat="todo in list.todos| filter:searchText" data-ng-class="{important:todo.important,editing:todo.selected}"> 
+        <div class="drag"></div>
+        <button class="control" data-ng-click="solveTask(list, todo)">
+            <i class="fa fa-2x" data-ng-class="{'fa-square-o':!todo.solved,'fa-check-square':todo.solved}"></i>
+        </button>
+        <div class="task-item">     
+            <div class="task-detail" data-ng-class="{hide:todo.selected}" data-ng-click="selectTodo(todo)">{{todo.description}}</div>
+            <form ng-submit="doneEdit(todo)" data-ng-show="todo.selected">
+                <input type="text" class="form-control" data-ng-model="todo.description"  focus-me="todo.selected">
+            </form>
+        </div>
+        <div class="task-controls">
+            <button data-ng-click="doneEdit(todo)" data-ng-show="todo.selected">
+                <i class="fa fa-check fa-fw"></i>
+            </button>
+            <button class="text-warning" data-ng-click="setTaskImportant(todo)">
+                <i class="fa fa-fw" data-ng-class="{'fa-star-o':!todo.important,'fa-star':todo.important}"></i>
+            </button>
+            <button class="text-danger" data-ng-click="delTask(list, 'todos', todo)">
+                <i class="fa fa-times fa-fw"></i>
+            </button>
+        </div>
+    </li>
+</ul> 
+<div class="task-add clearfix" data-ng-show="list.todos.length || list.showCompleted || (!list.todos.length && !list.completed.length && !list.addMode)">
+    <button class="btn-link" data-ng-click="addTask(list)"><i class="fa fa-plus"></i> Add todo</button> 
+</div>
+<div class="task-add-form" data-ng-show="list.addMode">
+    <form ng-submit="submitTask(newTodo)">
+        <div class="input-group flat">     
+            <input type="text" class="form-control flat input-md header-height " placeholder="What needs to be done?" data-ng-model="newTodo.text" focus-me="list.addMode">
+            <span class="h-100 no-m input-group-btn box-border-l-light bg-white">
+                <button class="btn no-bg" type="button" data-ng-click="submitTask(newTodo)"><i class="fa fa-plus"></i></button>
+                <button class="btn no-bg" type="button" data-ng-click="cancelSubmit()"><i class="fa fa-times"></i></button>
+            </span>
+        </div>
+    </form>
+</div>
+<div class="last-completed" data-ng-if="list.completed.length && !list.showCompleted && list.todos.length">
+    <div class="text-xs m-l-20 text-muted">last completed</div>
+    <ul class="task-list task-solved">
+        <li>
+            <button class="control" data-ng-click="pushBack(list, list.completed[list.completed.length - 1])">
+                <i class="fa fa-check-square fa-2x"></i>
+            </button>
+            <div class="task-item">
+                <div class="task-detail">
+                    {{list.completed[list.completed.length - 1].description}}
+                    <span class="text-xs">({{list.completed[list.completed.length - 1].solvedBy}},<span am-time-ago="list.completed[list.completed.length-1].solved"></span>)</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div data-ng-if="list.completed.length && list.showCompleted">
+    <div class="text-xs m-l-20 text-muted">all completed</div>
+    <ul class="task-list task-solved">
+        <li ng-repeat="completed in list.completed| filter:searchText">
+            <button class="control" data-ng-click="pushBack(list, completed)">
+                <i class="fa fa-check-square fa-2x"></i>
+            </button>
+            <div class="task-item">
+                <div class="task-detail">
+                    {{completed.description}} 
+                    <span class="text-xs">
+                        ({{completed.solvedBy}},
+                        <span am-time-ago="completed.solved"></span>)
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

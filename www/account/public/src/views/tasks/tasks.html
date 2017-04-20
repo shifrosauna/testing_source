@@ -1,0 +1,67 @@
+<div class=" bg-lightgrey" data-ng-controller="TaskCtrl" data-app-layout-application>
+    <div class="column box-border-r col-350" data-ng-hide="$state.is('app.tasks.view') && $root.mobileLayout">
+        <div class="table-display">    
+            <div class="list-header">TASK LISTS <a class="btn-link pull-right hidden-xs" ui-sref="app.tasks.all">Show all</a></div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box">
+                        <ul class="list list-hover list-draggable condensed" ui-sortable="{handle:'.drag'}" data-ng-model="tasks">
+                            <li ng-repeat="tasklist in tasks| orderBy:'created_date':true" data-ng-click="selectTaskList(tasklist)" data-ng-class="{'text-line-through':!tasklist.todos.length && tasklist.completed.length}" ui-sref-active="active">
+                                <a class="item-content" ui-sref="app.tasks.view({ taskId: tasklist.list_id})">
+                                    <div class="drag"></div>
+                                    <div class="no-m" data-ng-if="tasklist.list_name.length">
+                                        <strong>{{tasklist.list_name}}</strong>
+                                        <span class="label label-info b-rad-100 pull-right p-r-l-5 p-t-b-3" data-ng-show="tasklist.todos.length">{{tasklist.todos.length}}</span>
+                                        <span data-ng-show="!tasklist.todos.length" class="text-success pull-right"><i class="fa fa-check"></i></span>
+                                    </div>
+                                    <div class="no-m text-muted text-italic " data-ng-if="!tasklist.list_name.length"><strong>New tasklist</strong></div>
+                                    <div class="text-muted text-md">
+                                        {{tasklist.created_by}} 
+                                        <span class="pull-right text-xs" title="{{tasklist.created_date}}">
+                                            <i class="fa fa-clock-o"></i> 
+                                            <span am-time-ago="tasklist.created_date"></span>     
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>  
+                    </div>
+                </div> 
+            </div>
+            <div class="border-xs-sep-b">
+                <div class="task-add-form" data-ng-show="createMode">
+                    <form ng-submit="submitTaskList()">
+                        <div class="input-group flat">     
+                            <input type="text" class="form-control flat input-md header-height" placeholder="Tasklist" data-ng-model="newList" focus-on="createMode">
+                            <span class="h-100 no-m input-group-btn box-border-l-light bg-white">
+                                <button class="btn no-bg" type="button" data-ng-click="submitTaskList()"><i class="fa fa-plus"></i></button>
+                                <button class="btn no-bg" type="button" data-ng-click="cancelSubmitList()"><i class="fa fa-times"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="p-t-b-10 text-center bg-white box-border-t-light" data-ng-show="!createMode">
+                    <button data-ng-click="createTaskList()" class="btn btn-primary btn-rounded btn-line btn-sm"><i class="fa fa-plus"></i> Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column col-100p" data-ng-hide="$state.is('app.tasks.all') && $root.mobileLayout">
+        <div class="table-display">
+            <div class="p-10 visible-xs box-border-b-light bg-light">
+                <a ui-sref="app.tasks.all">
+                    <span><i class="fa fa-angle-left fa-fw"></i> back</span>
+                </a>
+            </div>
+            <div class="input-holder no-border bg-white box-border-b-light">
+                <i class="fa fa-search fa-2x tosearch"></i>
+                <input id="searchField" type="text" class="form-control no-border no-bg no-shadow" placeholder="Search task..." data-ng-model="searchText">
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box" ui-view="contentView"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

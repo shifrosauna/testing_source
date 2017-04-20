@@ -1,0 +1,996 @@
+<!-- start: App sidebar -->
+<ul class="nav main-nav" data-ng-controller="AppsidebarCtrl" app-navigation>
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard" angular-ripple>
+            <i class="fa fa-dashboard"></i>
+            <div>
+                <span >{{ 'DASHBOARD' | translate }}</span>
+            </div>
+        </a>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.news')}">
+        <a angular-ripple>
+            <i class="fa fa-newspaper-o"></i>
+            <div>
+                <span >{{ 'NEWS' | translate }}</span>
+                <i class="nav-arrow fa fa-angle-right "></i>
+            </div>
+            <ul class="nav  nav-children main-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="app.news.list" angular-ripple>
+                        <i class="icon-right"></i>
+                        <div>
+                            <span >{{ 'LIST' | translate }}</span>
+                        </div>
+                    </a>
+                </li>
+                <li  ui-sref-active="active">
+                    <a ui-sref="app.news.create" angular-ripple>
+                        <i class="icon-right"></i>
+                        <div>
+                            <span >{{ 'CREATE' | translate }}</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </a>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.offers')}">
+        <a angular-ripple>
+            <i class="fa fa-play"></i>
+            <div>
+                <span >{{ 'OFFERS' | translate }}</span>
+                <i class="nav-arrow fa fa-angle-right "></i>
+            </div>
+            <ul class="nav  nav-children main-nav">
+                <li ui-sref-active="active" >
+                    <a ui-sref="app.offers.list" angular-ripple>
+                        <i class="icon-right"></i>
+                        <div>
+                            <span >{{ 'LIST' | translate }}</span>
+                        </div>
+                    </a>
+                </li>
+                <li  ui-sref-active="active">
+                    <a ui-sref="app.offers.create" angular-ripple>
+                        <i class="icon-right"></i>
+                        <div>
+                            <span >{{ 'CREATE' | translate }}</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </a>
+    </li>
+    <li class="divider"></li>
+    <li class="text-wrapper">
+        {{ 'TEMPLATES' | translate }}
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.ui')}">
+        <a angular-ripple>
+            <i class="fa fa-star-o"></i> 
+            <div>
+                <span >{{ 'UI' | translate }}</span>
+                <i class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span >{{ 'UI' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li  ui-sref-active="active"> 
+                <a ui-sref="app.ui.general" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'GENERAL' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.ui.buttons" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'BUTTONS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ui.navs" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'NAVS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.ui.tabs-accordions" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'TABS_ACCORDIONS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ui.panels" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'PANELS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ui.typography" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'TYPOGRAPHY' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ui.grid" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'GRID' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ui.icons" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'ICONS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li  data-ng-class="{opened:$state.includes('app.components')}">  
+        <a  angular-ripple>
+            <i class="fa fa-table"></i> 
+            <div>
+                <span >{{ 'COMPONENTS' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span >{{ 'COMPONENTS' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.modal" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'MODAL' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.aside" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'ASIDE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+
+
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.alerts-notifications" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'ALERTS_NOTIF' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.sliders" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'SLIDERS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.carousel" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'CAROUSEL' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.list-wells"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'LIST_WELLS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.tree" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'TREE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.sortable" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'SORTABLE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.portlet" angular-ripple >
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PORTLET' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.components.breadcrumb"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'BREADCRUMB' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li  data-ng-class="{opened:$state.includes('app.forms')}">  
+        <a  angular-ripple>
+            <i class="fa fa-file-text-o"></i> 
+            <div>
+                <span >{{ 'FORMS' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span >{{ 'FORMS' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.elements" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'ELEMENTS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.forms.advanced"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'ADVANCED' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.layouts" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'LAYOUTS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.validation" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'VALIDATION' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.wizard" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'FORM_WIZARD' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.wizard-alt" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'FORM_WIZARD' | translate }} alt</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.editable" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'FORM_EDIT' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.forms.editors" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'EDITORS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.forms.upload"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'FILE_UPLOAD' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.forms.imagecrop" angular-ripple >
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'IMAGE_CROP' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li  data-ng-class="{opened:$state.includes('app.tables')}">  
+        <a  angular-ripple>
+            <i class="fa fa-th"></i> 
+            <div>
+                <span >{{ 'TABLES' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span >{{ 'TABLES' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.tables.basic"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'BASIC' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.tables.responsive"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'RESPONSIVE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.tables.data-table"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'DATATABLE_UI' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.tables.grid" angular-ripple >
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'GRID' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.tables.footable" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Footable</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.tables.smart-table" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Smart-table</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.tables.editable" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'EDITABLE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.pages')}">  
+        <a  angular-ripple>
+            <i class="fa fa-cogs"></i> 
+            <div>
+                <span >{{ 'PAGES' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span >{{ 'PAGES' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.pages.profile" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'PROFILE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.pages.timeline" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'TIMELINE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'LOGIN' | translate }}</span>
+                        <i  class="nav-arrow fa fa-angle-right "></i>
+                    </div>
+                </a>
+                <ul  class="nav nav-children main-nav">
+                    <li> 
+                        <a ui-sref="access.login">
+                            <div>
+                                <span>{{ 'LOGIN' | translate }}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li> 
+                        <a ui-sref="access.signup">
+                            <div>
+                                <span >{{ 'REGISTRATION' | translate }}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li> 
+                        <a ui-sref="access.forget">
+                            <div>
+                                <span >{{ 'FORGOT_PWD' | translate }}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li> 
+                        <a ui-sref="access.lock"> 
+                            <div>
+                                <span >{{ 'LOCK_SCREEN' | translate }}</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.pages.invoice" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'INVOICE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.pages.search"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >{{ 'SEARCH_RESULT' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="access.404" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >404 {{ 'ERROR' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="access.500"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span >500 {{ 'ERROR' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.charts')}">  
+        <a  angular-ripple>
+            <i class="fa fa-bar-chart-o"></i> 
+            <div>
+                <span >{{ 'CHARTS' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span>{{ 'CHARTS' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.charts.sparkline" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Sparkline</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.charts.flot" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Flot</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.charts.chartjs" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Chart.js</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.charts.rickshaw" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Rickshaw</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.charts.morris" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Morris</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.charts.nvd" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Nvd3</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.maps')}">  
+        <a  angular-ripple>
+            <i class="fa fa-map-marker"></i> 
+            <div>
+                <span>{{ 'MAPS' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span >{{ 'MAPS' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.maps.googlemaps" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'GOOGLE_MAPS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.maps.vector" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'VECTOR_MAPS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="text-wrapper">
+        {{ 'EXTRAS' | translate }}
+    </li>
+    <li ui-sref-active="active"> 
+        <a ui-sref="app.widgets" angular-ripple>
+            <i class="fa fa-cube"></i> 
+            <div>
+                <span >{{ 'WIDGETS' | translate }}</span>
+            </div>
+        </a>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.extra')}">  
+        <a  angular-ripple>
+            <i class="fa fa-bell-o"></i> 
+            <div>
+                <span>{{ 'APP_VIEWS' | translate }} </span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span>{{ 'EXTRA' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.extra.forum" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'FORUM' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.extra.post" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'POST' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.extra.project-list" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PROJECT_LIST' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.extra.chat-room" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'MESSAGES' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.extra.people" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PEOPLE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.extra.gallery" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'GALLERY' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.extra.feed" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'FEED' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.starters')}">  
+        <a  angular-ripple>
+            <i class="fa fa-anchor"></i> 
+            <div>
+                <span>{{ 'STARTERS' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span>{{ 'STARTERS' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.empty" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'EMPTY' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.title" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'WITH_TITLE' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.boxed" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>Boxed</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.column_3_9" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} 3:9</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.column_9_3" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} 9:3</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.column_6_6" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} 6:6</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.starters.column_2_8_2" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} 2:8:2</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.column_fix_fluid" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} fix:fluid</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active" > 
+                <a ui-sref="app.starters.column_fluid_fix" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} fluid:fix</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.starters.column_complex"  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'COLUMN' | translate }} complex</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>  
+        <a angular-ripple>
+            <i class="fa fa-plus-square-o"></i> 
+            <div>
+                <span>Multilevel</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span>Multilevel</span> 
+                    </div>
+                </a>
+            </li>
+            <li> 
+                <a  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>2 level</span>
+                        <i  class="nav-arrow fa fa-angle-right "></i>
+                    </div>
+                </a>
+                <ul  class="nav  nav-children main-nav">
+                    <li>
+                        <a>
+                            <div>
+                                <span>2.1 level</span> 
+                            </div>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a>
+                            <div>
+                                <span>2.2 level active</span> 
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li> 
+                <a  angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>3 level</span>
+                        <i  class="nav-arrow fa fa-angle-right "></i>
+                    </div>
+                </a>
+                <ul  class="nav  nav-children main-nav">
+                    <li>
+                        <a angular-ripple>
+                            <div>
+                                <span>3.1 level</span>
+                                <i  class="nav-arrow fa fa-angle-right "></i>
+                            </div>
+                        </a>
+                        <ul class="nav  nav-children main-nav">
+                            <li>
+                                <a>
+                                    <div>
+                                        <span>Item1</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a>
+                                    <div>
+                                        <span>Item2 active</span> 
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+        <li class="divider"></li>
+    <li class="text-wrapper">
+        {{ 'APP_PAGES' | translate }}
+    </li>
+    <li data-ng-class="{opened:$state.includes('app.ecommerce')}">  
+        <a angular-ripple>
+            <i class="fa fa-shopping-cart"></i> 
+            <div>
+                <span>{{ 'E_COMMERCE' | translate }}</span>
+                <i  class="nav-arrow fa fa-angle-right "></i>
+            </div>
+        </a>
+        <ul  class="nav  nav-children main-nav">
+            <li class="fold-header">
+                <a>
+                    <div>
+                        <span>{{ 'E_COMMERCE' | translate }}</span> 
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ecommerce.procucts_grid" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PRODUCTS_GRID' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ecommerce.procucts_list" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PRODUCTS_LIST' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ecommerce.procuct_detail" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PRODUCT_DETAIL' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ecommerce.procuct_edit" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'PRODUCT_EDIT' | translate }}</span>
+                    </div>
+                </a>
+            </li>    
+            <li ui-sref-active="active"> 
+                <a ui-sref="app.ecommerce.orders" angular-ripple>
+                    <i class="icon-right"></i> 
+                    <div>
+                        <span>{{ 'ORDERS' | translate }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="text-wrapper">
+        {{ 'APPS' | translate }}
+    </li>
+    <li data-ng-class="{active:$state.includes('mail')}" > 
+        <a ui-sref="mail.inbox"   angular-ripple>
+            <span class="badge label-primary">2</span>
+            <i class="fa fa-envelope-o"></i> 
+            <div>
+                <span >{{ 'MAIL' | translate }}</span>
+            </div>
+        </a>
+    </li>
+    <li data-ng-class="{active:$state.includes('app.documents')}"> 
+        <a ui-sref="app.documents.all"  angular-ripple>
+            <i class="fa fa-pencil"></i> 
+            <div>
+                <span >{{ 'DOCUMENTS' | translate }}</span>
+            </div>
+        </a>
+    </li>
+    <li data-ng-class="{active:$state.includes('app.tasks')}"> 
+        <a ui-sref="app.tasks.all"  angular-ripple>
+            <span class="badge label-danger">9</span>
+            <i class="fa fa-tasks"></i> 
+            <div>
+                <span >{{ 'TASKS' | translate }}</span>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active"> 
+        <a ui-sref="app.calendar"  angular-ripple>
+            <i class="fa fa-calendar"></i> 
+            <div>
+                <span >{{ 'CALENDAR' | translate }}</span>
+            </div>
+        </a>
+    </li>
+</ul>
+<!-- end: App sidebar -->

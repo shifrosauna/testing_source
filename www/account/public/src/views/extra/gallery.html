@@ -1,0 +1,48 @@
+<div class="wrapper relative " data-ng-controller="OtherCtrl">
+    <grid-panel repeat="item in bricks" 
+                on-panel-opened="panelIsOpened(item)" on-panel-closed="panelIsClosed(item)" class="text-center p-t-b-30">
+        <grid-panel-item class="font-size-none">
+            <div style="background-image: url({{item.src}});" class="img-item def-img-item item font-size-def">
+                <div class="img-overlayer"></div>
+                <div class="wrapper bottom right left">
+                    <div class="p-15 clearfix info">
+                        <div>
+                            <div class="font-bold text-left h4 no-m text-white">Lorem</div>
+                            <div class="clearfix text-left">
+                                <span class="text-muted pull-left">ipsum dolor sit</span>
+                                <span class="h4 no-m text-white font-bold pull-right">23.00 $</span>
+                            </div>
+                            <div class="more-info clearfix">
+                                <div></div>
+                                <span href class="text-white pull-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </span>
+                                <button class="btn btn-default btn-rounded pull-right btn-xs">Buy</button>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </grid-panel-item>
+        <grid-panel-content class="text-center grid-panel-content">
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <img ng-src="{{ item.src}}" class="img-responsive">
+                </div>
+                <div class="col-md-5 col-sm-5">
+                    <h4>Dummy picture</h4>
+                    <div class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    </div>
+                    <div class="m-t-b-15">
+                        <button class="btn btn-line btn-success btn-rounded btn-sm">Download</button>
+                        <button class="btn btn-line btn-success btn-rounded btn-sm">Share</button>
+                    </div>
+                </div>
+            </div>
+        </grid-panel-content>
+    </grid-panel>
+</div>

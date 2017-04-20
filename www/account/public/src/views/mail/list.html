@@ -1,0 +1,30 @@
+<ul class="list list-hover" data-ng-class="{'editing':selectMails}" style="border-top:none;border-bottom:none;">
+    <li ng-repeat="mail in mails | orderBy:order.by:order.sort | filter:searchText as filteredItems"  
+        data-ng-class="{
+            'status-default':!mail.read,
+            'status-primary':mail.flag=='primary',
+            'status-danger':mail.flag=='important'
+        }" 
+        ui-sref-active="active">
+        <div class="edit">
+            <label class="app-checkbox m-t-3">
+                <input type="checkbox" data-ng-model="mail.selected" data-ng-click="selectEmail(mail)"> 
+                <i></i>
+            </label>
+        </div>
+        <a class="item-content" ui-sref="mail.view({ emailId: mail.id})" data-ng-click="seeEmail(mail)">
+            <div class="list-status" >
+                <i class="fa fa-reply" data-ng-show="mail.replied"></i>
+                <i class="fa fa-paperclip f-14" data-ng-show="mail.attachments"></i>
+            </div>
+            <div class=" clearfix no-p-i no-m-i">
+                <span class="bold pull-left"> <strong>{{mail.sender}}</strong></span>
+                <span class="pull-right text-muted text-md" am-time-ago="mail.date"></span>  
+            </div>
+            <div class="topic m-b-5" data-ng-class="{'':!mail.read}">
+                {{mail.title}}
+            </div>
+            <div class="text-md">{{mail.content| cut:true:150:' ...' | htmlToPlaintext}}</div>
+        </a>
+    </li>
+</ul>

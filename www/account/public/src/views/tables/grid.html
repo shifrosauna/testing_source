@@ -1,0 +1,11 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Angular UiGrid</h1>
+</div>
+<div data-ng-controller="TableUiGridCtrl" class="wrapper">
+    <div id="grid1" ui-grid="gridOptions" ui-grid-exporter ui-grid-selection ui-grid-pagination class="grid m-b-20" style="height:500px;"></div>
+      <div data-ng-if='columnChanged'>
+        Column Visibility Changed - name: {{ columnChanged.name }} visible: {{ columnChanged.visible }}
+      </div>
+    
+    <div ui-grid="gridOptions2" class="grid" ui-grid-pinning></div>
+</div>

@@ -1,0 +1,3 @@
+<div ng-repeat="selectedEmail in mails | filter:{selected:true} as choosedEmails">
+    <div data-ng-include src="'views/mail/view.html'" class="m-b-20 box-border-b-light p-b-20"></div>
+</div>
