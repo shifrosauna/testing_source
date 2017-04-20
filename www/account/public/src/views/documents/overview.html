@@ -1,0 +1,48 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Documents overview </h1>
+</div>
+<div class="input-holder no-border bg-white box-border-b-light">
+    <i class="fa fa-search fa-2x tosearch"></i>
+    <input id="searchField" type="text" class="form-control no-border no-bg no-shadow" placeholder="Search document..." data-ng-model="searchText">
+</div>
+<div class="p-15 no-p-b">
+    <button data-ng-click="create()" class="btn btn-primary btn-rounded btn-line btn-sm"><i class="fa fa-plus"></i> Create</button>
+</div>
+<div class="table-row">
+    <div class="table-cell">
+        <div class="a-box">
+            <div class="p-15">
+                <div class="row row-gap-5">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="document in documents| filter:searchText | orderBy:'created_date':true">
+                        <div class="panel  m-b-10 panel-default" data-ng-class="{'b-primary':document.favourite }">
+                            <div class="panel-heading no-bg">
+                                <a ui-sref="app.documents.view({ docId: document.document_id})" data-ng-click="selectDocument(document.document_id)" class="text-def">
+                                    <i class="fa fa-file-text-o"></i> 
+                                    <strong>{{document.title}}</strong>
+                                </a>
+                                <a class="pull-right" data-ng-click="setFav(document)"><i class="fa " data-ng-class="{'fa-star-o':!document.favourite,'fa-star':document.favourite}"></i></a>
+                            </div>
+                            <div class="panel-body">
+                                <div style="min-height:140px;max-height:140px;">{{document.content| htmlToPlaintext | cut:true:200:' ...'}} <span class="label label-info b-rad-15" data-ng-show="document.comments.length"><i class="fa fa-comment"></i> {{document.comments.length}}</span></div>
+                                <div class="clearfix m-t-5">
+                                    <div class="text-xs text-muted">
+                                        <span class="text-md"> Added by {{document.created_by}}</span>
+                                        <span class="" title="{{document.created_date}}"><i class="fa fa-clock-o"></i> <span am-time-ago="document.created_date"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer clearfix text-center text-xs no-bg">
+                                <div data-ng-if="document.last_update[document.last_update.length - 1]">
+                                    <span class="text-md">Saved by {{document.last_update[document.last_update.length - 1].user}}</span>
+                                    <span class="text-xs text-muted" title="{{document.created_date}}"><i class="fa fa-clock-o"></i> <span am-time-ago="document.last_update[document.last_update.length-1].datetime"></span></span>
+                                </div>
+                                <div data-ng-if="!document.last_update[document.last_update.length - 1]" style="height: 18px;"> - </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

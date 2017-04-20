@@ -1,0 +1,212 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Table xeditable</h1>
+</div>
+<div class="wrapper" data-ng-controller="EditTableCtrl">
+    
+    <div class="h4 no-m m-b-5 m-l-5">Editable row</div>
+    <table class="table table-bordered table-hover bg-white m-b-5">
+        <thead>
+
+
+            <tr style="font-weight: bold">
+                <th style="width:35%">Name</th>
+                <th style="width:20%">Status</th>
+                <th style="width:20%">Group</th>
+                <th style="width:25%">Edit</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>
+                    <!-- editable username (text with validation) -->
+                    <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+                        {{ user.name || 'empty' }}
+                    </span>
+                </td>
+                <td>
+                    <!-- editable status (select-local) -->
+                    <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                        {{ showStatus(user)}}
+                    </span>
+                </td>
+                <td>
+                    <!-- editable group (select-remote) -->
+                    <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
+                        {{ showGroup(user)}}
+                    </span>
+                </td>
+                <td style="white-space: nowrap">
+                    <!-- form -->
+                    <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" data-ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary btn-sm">
+                            save
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" data-ng-click="rowform.$cancel()" class="btn btn-default btn-sm">
+                            cancel
+                        </button>
+                    </form>
+                    <div class="buttons" data-ng-show="!rowform.$visible">
+                        <button class="btn btn-primary btn-xs btn-rounded btn-line" data-ng-click="rowform.$show()">edit</button>
+                        <button class="btn btn-danger btn-xs btn-rounded btn-line" data-ng-click="removeUser($index)">del</button>
+                    </div>  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-default btn-sm" data-ng-click="addUser()">Add row</button>
+
+
+
+
+
+<div class="line-separator"></div>
+
+
+
+
+
+
+
+<div class="h4 no-m m-b-5 m-l-5">Editable column</div>
+    <table class="table table-bordered table-hover bg-white ">
+        <thead>
+
+            <tr style="font-weight: bold; white-space: nowrap">
+
+                <!-- username header -->
+                <th style="width:40%">
+                    Name
+        <form editable-form name="nameform" onaftersave="saveColumn('name')" data-ng-show="nameform.$visible">
+            <button type="submit" ng-disabled="nameform.$waiting" class="btn btn-primary btn-xs">
+                save
+            </button>
+            <button type="button" ng-disabled="nameform.$waiting" data-ng-click="nameform.$cancel()" class="btn btn-default btn-xs">
+                cancel
+            </button>
+        </form>  
+        <button class="btn btn-default btn-xs" data-ng-show="!nameform.$visible" data-ng-click="nameform.$show()">
+            edit
+        </button>
+        </th>
+
+        <!-- status header -->
+        <th style="width:30%">
+            Status
+        <form editable-form name="statusform" onaftersave="saveColumn('status')" data-ng-show="statusform.$visible">
+            <button type="submit" ng-disabled="statusform.$waiting" class="btn btn-primary btn-xs">
+                save
+            </button>
+            <button type="button" ng-disabled="statusform.$waiting" data-ng-click="statusform.$cancel()" class="btn btn-default btn-xs">
+                cancel
+            </button>
+        </form>  
+        <button class="btn btn-default btn-xs" data-ng-show="!statusform.$visible" data-ng-click="statusform.$show()">
+            edit
+        </button>
+        </th>
+
+        <!-- group header -->
+        <th style="width:30%">
+            Group
+        <form editable-form name="groupform" onaftersave="saveColumn('group')" data-ng-show="groupform.$visible">
+            <button type="submit" ng-disabled="groupform.$waiting" class="btn btn-primary btn-xs">
+                save
+            </button>
+            <button type="button" ng-disabled="groupform.$waiting" data-ng-click="groupform.$cancel()" class="btn btn-default btn-xs">
+                cancel
+            </button>
+        </form>  
+        <button class="btn btn-default btn-xs" data-ng-show="!groupform.$visible" data-ng-click="groupform.$show()">
+            edit
+        </button>
+        </th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+            <tr ng-repeat="user in users">
+                <td>
+                    <!-- editable username (text with validation) -->
+                    <span editable-text="user.name" e-name="name" e-form="nameform" onbeforesave="checkName($data)">
+                        {{ user.name || 'empty' }}
+                    </span>
+                </td>
+
+                <td>
+                    <!-- editable status (select-local) -->
+                    <span editable-select="user.status" e-name="status" e-form="statusform" e-ng-options="s.value as s.text for s in statuses">
+                        {{ showStatus(user)}}
+                    </span>
+                </td>
+
+                <td>
+                    <!-- editable group (select-remote) -->
+                    <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="groupform" e-ng-options="g.id as g.text for g in groups">
+                        {{ showGroup(user)}}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+<div class="line-separator"></div>
+
+<div class="h4 no-m m-b-5 m-l-5">Editable table</div>
+
+    <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+
+        <!-- table -->
+        <table class="table table-bordered table-hover bg-white m-b-5">
+            <thead>
+                <tr style="font-weight: bold">
+                    <th style="width:40%">Name</th>
+                    <th style="width:30%">Status</th>
+                    <th style="width:30%">Group</th>
+                    <th style="width:30%"><span data-ng-show="tableform.$visible">Action</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users| filter:filterUser">
+                    <td>
+                        <!-- editable username (text with validation) -->
+                        <span editable-text="user.name" e-form="tableform" onbeforesave="checkName($data, user.id)">
+                            {{ user.name || 'empty' }}
+                        </span>
+                    </td>
+                    <td>
+                        <!-- editable status (select-local) -->
+                        <span editable-select="user.status" e-form="tableform" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user)}}
+                        </span>
+                    </td>
+                    <td>
+                        <!-- editable group (select-remote) -->
+                        <span editable-select="user.group" e-form="tableform" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
+                            {{ showGroup(user)}}
+                        </span>
+                    </td>
+                    <td><button type="button" data-ng-show="tableform.$visible" data-ng-click="deleteUser(user.id)" class="btn btn-danger pull-right">Del</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- buttons -->
+        <div class="btn-edit">
+            <button type="button" class="btn btn-default m-b-20 btn-sm"" data-ng-show="!tableform.$visible" data-ng-click="tableform.$show()">
+                edit
+            </button>
+        </div>
+        <div class="btn-form" data-ng-show="tableform.$visible">
+            <button type="button" ng-disabled="tableform.$waiting" data-ng-click="addUser()" class="btn btn-default pull-right">add row</button>
+            <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+            <button type="button" ng-disabled="tableform.$waiting" data-ng-click="tableform.$cancel()" class="btn btn-default">cancel</button>
+        </div> 
+
+    </form>
+</div>

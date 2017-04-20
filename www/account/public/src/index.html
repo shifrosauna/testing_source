@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-ng-app="app" data-resize-browser>
+    <head>
+        <meta charset="UTF-8">
+        <title>YeApp Admin Template | AngularJS version</title>
+        <meta name="description" content="YeApp Admin Template | AngularJS version">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <link rel="stylesheet" href="fonts/opensans/font.css" type="text/css">
+        <link rel="stylesheet" href="icons/font-awesome-4.2.0/css/font-awesome.min.css" type="text/css">
+        
+        <!-- build:css css/app.min.css -->
+            <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.min.css">
+            <link rel="stylesheet" href="../bower_components/angular-ui-switch/angular-ui-switch.min.css">
+            <link rel="stylesheet" href="../bower_components/AngularJS-Toaster/toaster.css">
+            <link rel="stylesheet" href="../bower_components/angular-aside/dist/css/angular-aside.min.css">
+            <link rel="stylesheet" href="../bower_components/angular-xeditable/dist/css/xeditable.css">
+            <link rel="stylesheet" href="../bower_components/textAngular/dist/textAngular.css">
+            <link rel="stylesheet" href="css/animate.css">
+            <link rel="stylesheet" href="css/app.css">
+        <!-- /build -->
+        
+    </head>
+    <body 
+        data-ng-controller="RootCtrl" 
+        class="{{$root.app.settings.theme}}" 
+        data-breakpoint="{0:'screen-xs', 768:'screen-sm', 992:'screen-md', 1200:'screen-lg'}"
+        data-ng-class="{
+            'app-aside-folded':!$root.app.settings.asideFolded,
+            'app-aside-show':$root.app.settings.asideFolded,
+            'app-aside-fixed':$root.app.settings.asideFixed,
+            'app-aside-docked':$root.app.settings.asideDocked,
+            'app-aside-hover':$root.app.settings.asideHover,
+            'app-header-fixed':$root.app.settings.headerFixed,
+            'app-footer-fixed':$root.app.settings.footerFixed,
+            'app-layout-application':$root.app.settings.layoutApplication
+        }">
+        
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- start: App Preloader -->
+        <div id="app-preloader" data-ng-class="{'nodisplay':$root.systemLoaded}">
+            <div id="app-preloader-wrapper">
+                <img src="img/logos/mobioffers-logo.png" class="normal-logo">
+                <!-- <img src="img/preloader.gif" alt="preloader"> -->
+            </div>
+        </div>
+        <!-- end: App Preloader -->
+        
+        <!-- start: App Holder -->
+        <div class="app" data-ui-view></div>
+        <!-- end: App Holder -->
+    
+        <!-- start: Toaster directive -->
+        <div data-toaster-container></div>
+        <!-- end: Toaster directive -->
+
+        <!-- start: App Top Dropdown -->
+        <div class="app-top-dropdown" data-app-top-drop-down data-ng-include data-src="'views/app.topdropdown.html'"></div>
+        <!-- end: App Top Dropdown --> 
+        
+        <!-- start: App Search -->
+        <div class="app-search" data-app-search data-ng-include data-src="'views/app.search.html'"></div>
+        <!-- end: App Search -->
+        
+        <!-- start: App Quickview -->
+        <div class="app-quickview" data-app-quickview data-ng-include data-src="'views/app.quickview.html'"></div>
+        <!-- end: App Quickview -->
+
+        <!-- start: App settings (just for the demo) -->
+        <div id="app-settings-demo" data-ng-class="{'closed':!settingsSide}" data-ng-init="settingsSide = false" data-ng-include data-src="'views/app.settings.html'"></div>
+        <!-- end: App settings -->
+
+        <!--[if lt IE 9]>
+            <script src="../bower_components/es5-shim/es5-shim.js"></script>
+            <script src="../bower_components/json3/lib/json3.js"></script>
+        <![endif]-->
+
+        <!-- build:js scripts/app.min.js -->
+            <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="../bower_components/angular/angular.min.js"></script>
+            <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+            <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
+            <script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+            <script src="../bower_components/angular-animate/angular-animate.js"></script>
+            <script src="../bower_components/angular-touch/angular-touch.min.js"></script>
+            <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
+            <script src="../bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+            <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+            <script src="../bower_components/ngstorage/ngStorage.min.js"></script>
+            <script src="../bower_components/ng-focus-on/ng-focus-on.min.js"></script>
+            <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+            <script src="../bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+            <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+            <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+            <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+            <script src="../bower_components/angularjs-breakpoint/breakpoint-0.0.1.min.js"></script>
+            <script src="../bower_components/angular-ui-switch/angular-ui-switch.min.js"></script>
+            <script src="../bower_components/moment/min/moment.min.js"></script>
+            <script src="../bower_components/AngularJS-Toaster/toaster.js"></script>
+            <script src="../bower_components/angular-aside/dist/js/angular-aside.min.js"></script>
+            <script src="../bower_components/angular-breadcrumb/release/angular-breadcrumb.min.js"></script>
+            <script src="../bower_components/slimScroll/jquery.slimscroll.min.js"></script>
+            <script src="../bower_components/angular-slimscroll/angular-slimscroll.js"></script>
+            <script src="../bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+            <script src="../bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
+            <script src="../bower_components/ngScrollTo/ng-scrollto.js"></script>
+            <script src="../bower_components/textAngular/dist/textAngular-rangy.min.js"></script>
+            <script src="../bower_components/textAngular/dist/textAngular-sanitize.min.js"></script>
+            <script src="../bower_components/textAngular/dist/textAngular.min.js"></script>
+            
+            <script src="scripts/app.js"></script>
+            <script src="scripts/app.config.lazyload.controllers.js"></script>
+            <script src="scripts/app.config.lazyload.modules.js"></script>
+            <script src="scripts/app.config.lazyload.requires.js"></script>
+            <script src="scripts/app.config.routes.js"></script>
+            <script src="scripts/app.config.js"></script>
+            <script src="scripts/app.run.js"></script>
+            <script src="scripts/app.root.js"></script>
+            
+            <script src="scripts/filters/app.cut.js"></script>
+            <script src="scripts/filters/app.htmltoplaintext.js"></script>
+            <script src="scripts/filters/app.propsfilter.js"></script>
+            <script src="scripts/filters/app.totrusted.js"></script>
+            
+            <script src="scripts/directives/app.angular.ripple.js"></script>
+            <script src="scripts/directives/app.focus.js"></script>
+            <script src="scripts/directives/app.icheck.js"></script>
+            <script src="scripts/directives/app.layout.application.js"></script>
+            <script src="scripts/directives/app.morris.js"></script>
+            <script src="scripts/directives/app.navigation.js"></script>
+            <script src="scripts/directives/app.panel.js"></script>
+            <script src="scripts/directives/app.panel.animation.js"></script>
+            <script src="scripts/directives/app.quickview.js"></script>
+            <script src="scripts/directives/app.resizebrowser.js"></script>
+            <script src="scripts/directives/app.search.js"></script>
+            <script src="scripts/directives/app.sparkline.js"></script>
+            <script src="scripts/directives/app.topdropdown.js"></script>
+            <script src="scripts/directives/app.vectormap.js"></script>
+        <!-- /build -->
+    
+    </body>
+</html>

@@ -1,0 +1,467 @@
+<div class="wrapper" data-ng-controller="FormElementsCtrl">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Form elements
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal" method="get">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Rounded</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control rounded" data-ng-model="appTest1">                        
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">With help</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="appTest666">
+                        <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Line</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-line " data-ng-model="appTest555" placeholder="Input line">                        
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-id-1">Label focus</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input-id-1" data-ng-model="appTest3">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" class="form-control" data-ng-model="appTest4">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Placeholder</label>
+                    <div class="col-sm-10">
+                        <input type="text"  class="form-control" placeholder="placeholder" data-ng-model="appTest5">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Disabled</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" type="text" placeholder="Disabled input here..." disabled data-ng-model="appTest6">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Static control</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">email@example.com</p>
+                    </div>
+                </div>                    
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Checkboxes and radios</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" data-ng-model="appTest7">
+                                Option one is this and that&mdash;be sure to include why it's great
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked data-ng-model="appTest8">
+                                Option one is this and that&mdash;be sure to include why it's great
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" data-ng-model="appTest8">
+                                Option two can be something else and selecting it will deselect option one
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Inline checkboxes</label>
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="option1" data-ng-model="appTest10"> a
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="option2" data-ng-model="appTest11"> b
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="option3" data-ng-model="appTest12"> c
+                        </label>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">CSS3 Checkboxes & radios</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label class="app-checkbox">
+                                <input type="checkbox" data-ng-model="test"> 
+                                <i></i>
+                                Option one 
+                            </label>
+                        </div>
+                        <div class="checkbox" >
+                            <label class="app-checkbox">
+                                <input type="checkbox" data-ng-model="test2" checked> 
+                                <i></i>
+                                Option two checked
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="app-checkbox">
+                                <input type="checkbox" data-ng-model="test6" disabled> 
+                                <i></i>
+                                Option two checked
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="app-checkbox"> 
+                                <input type="checkbox" data-ng-model="test3" disabled> 
+                                <i></i>
+                                Option four disabled
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="app-radio">
+                                <input type="radio" data-ng-model="test4" value="def1"> 
+                                <i></i>
+                                Option one
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="app-radio">
+                                <input type="radio" data-ng-model="test4" value="def"> 
+                                <i></i>
+                                Option two checked
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="app-radio">
+                                <input type="radio" data-ng-model="test5" value="def3" disabled> 
+                                <i></i>
+                                Option three checked and disabled
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="app-radio">
+                                <input type="radio" data-ng-model="test5" disabled> 
+                                <i></i>
+                                Option four disabled
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Checkboxes & radios</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label class="icheck"><input type="checkbox" i-check data-ng-model="test"> Option one </label>
+                        </div>
+                        <div class="checkbox" >
+                            <label class="icheck"><input type="checkbox" i-check data-ng-model="test2" checked> Option two checked</label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="icheck"><input type="checkbox" i-check data-ng-model="test6" disabled> Option two checked</label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="icheck"> <input type="checkbox" i-check data-ng-model="test3" disabled> Option four disabled</label>
+                        </div>
+                        <div class="radio">
+                            <label class="icheck"><input type="radio" i-check data-ng-model="test4" name="rad" value="def1"> Option one</label>
+                        </div>
+                        <div class="radio">
+                            <label class="icheck"><input type="radio" i-check data-ng-model="test4" name="rad" value="def"> Option two checked</label>
+                        </div>
+                        <div class="radio">
+                            <label class="icheck"><input type="radio" i-check data-ng-model="test5" value="def3" disabled> Option three checked and disabled</label>
+                        </div>
+                        <div class="radio">
+                            <label class="icheck"><input type="radio" i-check data-ng-model="test5" value="" disabled> Option four disabled</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Inline checkboxes</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label class="app-checkbox"><input type="checkbox" data-ng-model="test8" name="in"><i></i> a</label>
+                            <label class="app-checkbox"><input type="checkbox" data-ng-model="test9" name="in"><i></i> b</label>
+                            <label class="app-checkbox"><input type="checkbox" data-ng-model="test10" name="in"><i></i> c</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Inline checkboxes</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label class="icheck"><input type="checkbox" i-check data-ng-model="test8" name="in"> a</label>
+                            <label class="icheck"><input type="checkbox" i-check data-ng-model="test9" name="in"> b</label>
+                            <label class="icheck"><input type="checkbox" i-check data-ng-model="test10" name="in"> c</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Switch</label>
+                    <div class="col-sm-10">
+                        <switch data-ng-model="switch" class=""></switch>
+                        <switch data-ng-model="switch1" class=""></switch>
+                        <switch data-ng-model="switch2" class="primary"></switch>
+                        <switch data-ng-model="switch3" class="danger"></switch>
+                        <switch data-ng-model="switch4" class="warning"></switch>
+                    </div>
+                </div>
+
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Switch size</label>
+                    <div class="col-sm-10">
+                        <switch data-ng-model="switch1" class="xs"></switch>
+                        <switch data-ng-model="switch1" class=""></switch>
+                    </div>
+                </div>
+
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Select</label>
+                    <div class="col-sm-10">
+                        <select name="account" class="form-control m-b-10" data-ng-model="appTest20">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                        <div>
+                            <select multiple class="form-control m-b-10" data-ng-model="appTest21">
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                            </select>
+                        </div>
+                        <select name="account" class="form-control form-control-line" data-ng-model="appTest20">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group has-success">
+                    <label class="col-sm-2 control-label">Input with success</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="appTest22">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group has-warning">
+                    <label class="col-sm-2 control-label">Input with warning</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="appTest23">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group has-error">
+                    <label class="col-sm-2 control-label">Input with error</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" data-ng-model="appTest24">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Control sizing</label>
+                    <div class="col-sm-10">
+                        <input class="form-control input-lg m-b-10" type="text" placeholder=".input-lg" data-ng-model="appTest25">
+                        <input class="form-control m-b-10" type="text" placeholder="Default input" data-ng-model="appTest26">
+                        <input class="form-control input-sm" type="text" placeholder=".input-sm" data-ng-model="appTest27">
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Column sizing</label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" placeholder=".col-md-2" data-ng-model="appTest28">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder=".col-md-3" data-ng-model="appTest29">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder=".col-md-4" data-ng-model="appTest30">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Input groups</label>
+                    <div class="col-sm-10">
+                        <div class="input-group m-b-10">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" placeholder="Username" data-ng-model="appTest31">
+                        </div>
+                        <div class="input-group m-b-10">
+                            <input type="text" class="form-control" data-ng-model="appTest32">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                        <div class="input-group m-b-10">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" data-ng-model="appTest33">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                        <div class="input-group m-b-10">
+                            <span class="input-group-addon">
+                                <input type="checkbox">
+                            </span>
+                            <input type="text" class="form-control" data-ng-model="appTest34">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio">
+                            </span>
+                            <input type="text" class="form-control" data-ng-model="appTest35">
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Button addons</label>
+                    <div class="col-sm-10">
+                        <div class="input-group m-b-10">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                            <input type="text" class="form-control" data-ng-model="appTest36">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">With dropdowns</label>
+                    <div class="col-sm-10">
+                        <div class="input-group m-b-10">
+                            <div class="input-group-btn dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href>Action</a></li>
+                                    <li><a href>Another action</a></li>
+                                    <li><a href>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href>Separated link</a></li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                            <input type="text" class="form-control" data-ng-model="appTest43">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" data-ng-model="appTest37">
+                            <div class="input-group-btn dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href>Action</a></li>
+                                    <li><a href>Another action</a></li>
+                                    <li><a href>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href>Separated link</a></li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Segmented</label>
+                    <div class="col-sm-10">
+                        <div class="input-group m-b-10">
+                            <div class="input-group-btn dropdown">
+                                <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href>Action</a></li>
+                                    <li><a href>Another action</a></li>
+                                    <li><a href>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href>Separated link</a></li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                            <input type="text" class="form-control" data-ng-model="appTest44">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" data-ng-model="appTest39">
+                            <div class="input-group-btn dropdown">
+                                <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href>Action</a></li>
+                                    <li><a href>Another action</a></li>
+                                    <li><a href>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href>Separated link</a></li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Button radio</label>
+                    <div class="col-sm-10">
+                        <div class="btn-group m-r">
+                            <label class="btn btn-default" data-ng-model="radioModel" btn-radio="'Left'" uncheckable>Left</label>
+                            <label class="btn btn-default" data-ng-model="radioModel" btn-radio="'Middle'" uncheckable>Middle</label>
+                            <label class="btn btn-default" data-ng-model="radioModel" btn-radio="'Right'" uncheckable>Right</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Button checkbox</label>
+                    <div class="col-sm-10">
+                        <div class="btn-group">
+                            <label class="btn btn-default" data-ng-model="checkModel.left" btn-checkbox>Left</label>
+                            <label class="btn btn-default" data-ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                            <label class="btn btn-default" data-ng-model="checkModel.right" btn-checkbox>Right</label>
+                        </div>
+                    </div>          
+                </div>  
+
+                <div class="sep sep-dashed row-fix"></div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button type="submit" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

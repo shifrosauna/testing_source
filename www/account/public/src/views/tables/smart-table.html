@@ -1,0 +1,113 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Angular SmartTable</h1>
+</div>
+<div class="wrapper" data-ng-controller="SmartTableCtrl">
+
+    <div class="panel panel-default">
+        <div class="panel-heading m-b-10">Draggable headers & pagination</div>
+        <div class="panel-body no-p">
+            <div class="table-container">
+                <table st-table="rowCollection" class="table table-striped no-m">
+                    <thead>
+                        <tr>
+                            <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in columns" st-sort="{{col}}">{{col}}</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input st-search="firstName" placeholder="search for firstname" class="input-sm form-control" type="search"/>
+                            </th>
+                            <th colspan="4">
+                                <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in rowCollection">
+                            <td ng-repeat="col in columns">{{row[col]}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div data-ng-show="isLoading" class="loading-indicator"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading m-b-10">Fixed header</div>
+        <div class="panel-body no-p">
+            <div class="table-container">
+                <table st-table="displayed" class="table table-striped table-fixed-header no-m">
+                    <thead>
+                        <tr>
+                            <th st-ratio="20" st-sort="firstName">first name</th>
+                            <th st-ratio="20" st-sort="lastName">last name</th>
+                            <th st-ratio="10" st-sort="age">age</th>
+                            <th st-ratio="30" st-sort="email">email</th>
+                            <th st-ratio="20" st-sort="balance">balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in displayed">
+                            <td st-ratio="20">{{row.firstName}}</td>
+                            <td st-ratio="20">{{row.lastName| uppercase}}</td>
+                            <td st-ratio="10">{{row.age}}</td>
+                            <td st-ratio="30">{{row.email}}</td>
+                            <td st-ratio="20">{{row.balance| currency}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div  st-items-by-page="20" st-pagination=""></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading m-b-10">Custom pagination</div>
+        <div class="panel-body no-p">
+            <div class="table-container">
+                <table st-table="displayed" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th st-ratio="20" st-sort="firstName">first name</th>
+                            <th st-ratio="20" st-sort="lastName">last name</th>
+                            <th st-ratio="10" st-sort="age">age</th>
+                            <th st-ratio="30" st-sort="email">email</th>
+                            <th st-ratio="20" st-sort="balance">balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in displayed">
+                            <td st-ratio="20">{{row.firstName}}</td>
+                            <td st-ratio="20">{{row.lastName| uppercase}}</td>
+                            <td st-ratio="10">{{row.age}}</td>
+                            <td st-ratio="30">{{row.email}}</td>
+                            <td st-ratio="20">{{row.balance| currency}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div st-items-by-page="20" st-pagination="" st-template="views/tables/pagination.custom.html"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div data-ng-show="isLoading" class="loading-indicator"></div>
+
+</div>

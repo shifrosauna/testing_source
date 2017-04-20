@@ -1,0 +1,118 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Alerts & Notifications</h1>
+</div>
+<div class="wrapper" ng-init="toaster.type = 'success'" data-ng-controller="NotificationCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading">Toaster</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control " placeholder="Enter a title..." data-ng-model="toaster.title">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea class="form-control " placeholder="Enter a message" rows="5" data-ng-model="toaster.text"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label>Toast Type</label>
+                    <div class="radio">
+                        <label class="app-radio">
+                            <input type="radio" name="toasts" data-ng-model="toaster.type" value="success" class="">
+                            <i></i>
+                            Success
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="app-radio">
+                            <input type="radio" name="toasts" data-ng-model="toaster.type" value="info" class="">
+                            <i></i>
+                            Info
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="app-radio">
+                            <input type="radio" name="toasts" data-ng-model="toaster.type" value="wait" class="">
+                            <i></i>
+                            Wait
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="app-radio">
+                            <input type="radio" name="toasts" data-ng-model="toaster.type" value="warning" class="">
+                            <i></i>
+                            Warning
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="app-radio">
+                            <input type="radio" name="toasts" data-ng-model="toaster.type" value="error" class="">
+                            <i></i>
+                            Error
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-info btn-rounded btn-sm" data-ng-click="showToaster(toaster)">Show a Toaster</button>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Angular bootbox</div>
+        <div class="panel-body">
+            <button class="btn btn-default btn-rounded btn-sm" ng-bootbox-alert="Alert message!">
+                Alert
+            </button>
+            <button class="btn btn-default btn-rounded btn-sm" ng-bootbox-confirm="Are you sure you want to confirm this?"
+                    ng-bootbox-confirm-action="" ng-bootbox-confirm-action-cancel="">
+                Confirm
+            </button>
+            <button class="btn btn-default btn-rounded btn-sm" ng-bootbox-prompt="Please type in your name"
+                    ng-bootbox-prompt-action="" ng-bootbox-prompt-action-cancel="">
+                Prompt
+            </button>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">SweetAlert</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4 m-b-10">
+                    A basic message	
+                    <div><a href="" class="btn btn-default btn-rounded btn-sm" data-ng-click="demo1();">Try me!</a></div>
+                </div>
+
+
+                <div class="col-md-4 m-b-10">
+                    A title with a text under
+                    <div><a href="" class="btn btn-default btn-rounded btn-sm" data-ng-click="demo2();">Try me!</a></div>
+                </div>
+
+                <div class="col-md-4 m-b-10">
+                    A success message!
+                    <div><a href="" class="btn btn-default btn-rounded btn-sm" data-ng-click="demo3();">Try me!</a></div>
+                </div>
+
+
+                <div class="col-md-4 m-b-10">
+                    A warning message, with a function attached to the "Confirm"-button
+                    <div><a href="" class="btn btn-default btn-rounded btn-sm" data-ng-click="demo4();">Try me!</a></div>
+                </div>
+
+                <div class="col-md-4 m-b-10">
+                    ... and by passing a parameter, you can execute something else for "Cancel".
+                    <div><a href="" class="btn btn-default btn-rounded btn-sm" data-ng-click="demo5();">Try me!</a></div>
+                </div>
+                <div class="col-md-4 m-b-10">
+                    A message with a custom icon
+                    <div><a href="" class="btn btn-default btn-rounded btn-sm" data-ng-click="demo6();">Try me!</a></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="wrapper" data-ng-controller="ChartsCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Line
+                </div>
+                <div class="panel-body" style="position:relative;">
+                    <cjs-line options="chartjs.line.options" dataset="chartjs.line.data" responsive="true"></cjs-line>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Bar
+                </div>
+                <div class="panel-body">
+                    <cjs-bar options="chartjs.bar.options" dataset="chartjs.bar.data" responsive="true"></cjs-bar>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Polar
+                </div>
+                <div class="panel-body">
+                    <cjs-polar options="chartjs.polar.options" dataset="chartjs.polar.data" responsive="true"></cjs-polar>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Doughnut
+                </div>
+                <div class="panel-body">
+                    <cjs-doughnut options="chartjs.doughnut.options" dataset="chartjs.doughnut.data" responsive="true"></cjs-doughnut>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Radar
+                </div>
+                <div class="panel-body">
+                    <cjs-radar options="chartjs.radar.options" dataset="chartjs.radar.data" responsive="true"></cjs-radar>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

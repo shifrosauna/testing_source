@@ -1,0 +1,46 @@
+<div class="section-header">
+    <h1 class="h3 section-text">View Offer</h1>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Offer</div>
+            <div class="panel-body">
+                <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <img src="{{offer.icon}}" alt="{{offer.lang.ru.name}}">
+                    </div>
+                     <uib-tabset>
+                        <uib-tab heading="Основная информация">
+                            <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">
+                                <div class="form-group">
+                                    <label>Название</label>
+                                  <div> <b>{{offer.translates.ru.name}}</b> </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Описание</label>
+                                    <div> {{offer.translates.ru.description}}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Preview URL</label>
+                                    <div>{{offer.previewUrl}} </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Статус</label>
+                                    <div>  {{offer.status}} </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>ИконкаL</label>
+                                    <div>  {{offer.status}} </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <uib-tab heading="Другая информация">
+                            <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">
+                              Другая информация..
+                            </div>
+                        </uib-tab>
+                    </uib-tabset>
+                </div>
+            </div>
+        </div>
+    </div>

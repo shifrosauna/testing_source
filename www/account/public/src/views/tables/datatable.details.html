@@ -1,0 +1,74 @@
+<div class="modal-header bg-grey-lt-lt b-rad-r-l-6">
+    <a class="text-lg" data-ng-click="cancel()">Cancel</a>
+    <button class="btn btn-lg btn-link pull-right no-p text-lg" ng-disabled="editForm.$invalid || editForm.$pristine" ng-click="modify()">Modify</button>
+</div>
+<div class="modal-body">
+    <form role="form" name="editForm">
+        <div class="row row-gap-5">
+            <div class="col-sm-6">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Name</label>
+                    <input type="text" class="form-control" data-ng-model="user.name" required>
+                    <span></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Balance</label>
+                    <input type="number" class="form-control" data-ng-model="user.balance" disabled>
+                    <span></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Local id</label>
+                    <input type="number" class="form-control" data-ng-model="user.city_id" disabled>
+                    <span></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Remote id</label>
+                    <input type="number" class="form-control" data-ng-model="user.admin_id">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-gap-5">
+            <div class="col-sm-6">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Username</label>
+                    <input type="text" class="form-control" data-ng-model="user.username" ng-trim="true" required>
+                    <span></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Email</label>
+                    <input type="email" class="form-control" data-ng-model="user.email" required>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-gap-5">
+            <div class="col-sm-12">
+                <div class="form-group form-group-alt m-b-10">
+                    <label>Address</label>
+                    <input type="text" class="form-control" data-ng-model="user.address" required>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-gap-5">
+            <div class="col-sm-12">
+                <div class="form-group form-group-alt no-m">
+                    <label>Login hash</label>
+                    <textarea  class="form-control" data-ng-model="user.comment" style="height:70px;"></textarea>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

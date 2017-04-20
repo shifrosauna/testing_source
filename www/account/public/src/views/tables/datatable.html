@@ -1,0 +1,109 @@
+<div data-ng-controller="DataTableCtrl" data-app-layout-application>
+    <div class="column col-100p">
+        <div class="table-display">
+            <div class="input-holder bg-white">
+                <i class="fa fa-search fa-2x tosearch"></i>
+                <input type="text" class="form-control no-border no-bg no-shadow" placeholder="Search..." data-ng-model="searchStr">
+            </div>
+            <div class="bg-white box-border-b box-border-r-light clearfix">
+                <div class="pull-left dropdown no-m no-p" uib-dropdown>
+                    <button class="btn btn-default no-border-i box-border-r-light dropdown-toggle no-b-rad-i" uib-dropdown-toggle>
+                        Columns <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul uib-dropdown-menu class="dropdown-menu dropdown-alt">
+                        <li ng-repeat="column in columns">
+                            <a href data-ng-click="column.visible = !column.visible" data-ng-class="{'text-muted':!column.visible,'text-success':column.visible}">
+                                <i class="fa" data-ng-class="{'fa-times':!column.visible,'fa-check':column.visible}"></i> 
+                                {{column.title}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pull-right relative" uib-dropdown>
+                    <button class="btn btn-default no-border-i box-border-l-light dropdown-toggle no-b-rad-i" uib-dropdown-toggle>
+                        Show/page <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul uib-dropdown-menu class="dropdown-menu dropdown-alt">
+                        <li ng-repeat="count in tableParams.settings().counts" data-ng-class="{'active':tableParams.count() == count}"> 
+                            <a ng-bind="count"  data-ng-click="tableParams.count(count)"></a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box">
+                        <div class="">
+                            <div data-ng-if="loading">loading...</div>
+                            <table ng-table="tableParams" class="table table-condensed table-hover table-select table-advanced table-responsive bg-white no-m">
+                                <thead>
+                                    <tr>
+                                        <th style="width:10px;">
+                                            <label class="app-checkbox no-m">
+                                                <input type="checkbox" data-ng-model="selectAll" ng-change="setAll(selectAll)"> 
+                                                <i></i>
+                                            </label>
+                                        </th>
+                                        <th ng-repeat="column in columns" 
+                                            data-ng-show="column.visible"
+                                            class="sortable" 
+                                            data-ng-class="{
+                                                'sort-asc': tableParams.isSortBy(column.field, 'asc'),
+                                                'sort-desc': tableParams.isSortBy(column.field, 'desc')
+                                            }"
+                                            data-ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
+                                                <div class="text-left ">{{column.title}}</div>
+                                        </th>
+                                        <th style="width:10px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="user in $data" data-ng-class="{'active': user.$selected,'bg-light':user.$edit}">
+                                        <td style="padding-right:8px;padding-left:8px;">
+                                            <label class="app-checkbox no-m">
+                                                <input type="checkbox" data-ng-model="user.$selected"> 
+                                                <i></i>
+                                            </label>
+                                        </td>
+                                        <td ng-repeat="column in columns" data-ng-show="column.visible" sortable="{{column.field}}" filter="{{column.field}}">
+                                            <div data-ng-switch on="column.field">
+                                                <span data-ng-switch-default>
+                                                    {{ user[column.field]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td style="padding-right:8px;padding-left:8px;width:60px;">
+                                            <div class="dropdown" uib-dropdown>
+                                                <button uib-dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                                    <i class="fa fa-ellipsis-v fa-2x"></i>
+                                                </button>
+                                                <ul uib-dropdown-menu class="dropdown-menu dropdown-menu-right w-auto">
+                                                  <li><a data-ng-click="editItem(user)">Edit</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white box-border-t">
+                <div class="text-center" style="height:32px;">
+                    <ul class="pagination ng-table-pagination no-m">
+                        <li data-ng-class="{'disabled': !page.active}" ng-repeat="page in pages" data-ng-switch="page.type">
+                            <a data-ng-switch-when="prev" data-ng-click="tableParams.page(page.number)" href="" class="no-b-rad-i no-b-t no-b-b">&laquo;</a>
+                            <a data-ng-switch-when="first" data-ng-click="tableParams.page(page.number)" href="" class="no-b-rad-i no-b-t no-b-b"><span ng-bind="page.number"></span></a>
+                            <a data-ng-switch-when="page" data-ng-click="tableParams.page(page.number)" href="" class="no-b-rad-i no-b-t no-b-b"><span ng-bind="page.number"></span></a>
+                            <a data-ng-switch-when="more" data-ng-click="tableParams.page(page.number)" href="" class="no-b-rad-i no-b-t no-b-b">&#8230;</a>
+                            <a data-ng-switch-when="last" data-ng-click="tableParams.page(page.number)" href="" class="no-b-rad-i no-b-t no-b-b"><span ng-bind="page.number"></span></a>
+                            <a data-ng-switch-when="next" data-ng-click="tableParams.page(page.number)" href="" class="no-b-rad-i no-b-t no-b-b">&raquo;</a>
+                        </li>
+                    </ul>
+                    <div class="inline-block pull-right box-border-l-light text-success bg-light lt font-bold" style="padding: 6px 12px;">Total: {{ tableParams.total()}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

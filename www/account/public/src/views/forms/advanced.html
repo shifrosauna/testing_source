@@ -1,0 +1,281 @@
+<div class="wrapper" data-ng-controller="FormElementsCtrl">
+    <div class="row row-gap-5 row-panel-10">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    Angular ui-select
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Remote</label>
+                            <div class="col-sm-6">
+                                <div>
+                                    <ui-select data-ng-model="address.selected"
+                                               theme="bootstrap"
+                                               ng-disabled="disabled"
+                                               reset-search-input="false"
+                                               ng-required='true'>
+                                        <ui-select-match placeholder="Enter an address...">{{$select.selected.formatted_address}}</ui-select-match>
+                                        <ui-select-choices repeat="address in addresses track by $index"
+                                                           refresh="refreshAddresses($select.search)"
+                                                           refresh-delay="0">
+                                            <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Simple</label>
+                            <div class="col-sm-6">
+                                <div>
+                                    <ui-select data-ng-model="person.selected" theme="bootstrap" ng-disabled="disabled" >
+                                        <ui-select-match placeholder="Select a person in the list or search...">{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-choices repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                            <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                            <small>
+                                                email: {{person.email}}
+                                                age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                                            </small>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Select & search</label>
+                            <div class="col-sm-6">
+                                <div>
+                                    <ui-select data-ng-model="country.selected" theme="bootstrap" ng-disabled="disabled" >
+                                        <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-choices repeat="country in countries | filter: $select.search">
+                                            <span ng-bind-html="country.name | highlight: $select.search"></span>
+                                            <small ng-bind-html="country.code | highlight: $select.search"></small>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Multiple select</label>
+                            <div class="col-sm-6">
+                                <ui-select multiple data-ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="disabled">
+                                    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                                    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                                        {{color}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Multiple filtered</label>
+                            <div class="col-sm-6">
+                                <ui-select multiple data-ng-model="multipleDemo.selectedPeople" theme="bootstrap" ng-disabled="disabled">
+                                    <ui-select-match placeholder="Select person...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                                    <ui-select-choices repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                        <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                        <small>
+                                            email: {{person.email}}
+                                            age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                                        </small>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Multiple grouped</label>
+                            <div class="col-sm-6">
+                                <ui-select multiple data-ng-model="multipleDemo.selectedPeopleWithGroupBy" theme="bootstrap" ng-disabled="disabled">
+                                    <ui-select-match placeholder="Select person...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                                    <ui-select-choices group-by="someGroupFn" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                        <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                        <small>
+                                            email: {{person.email}}
+                                            age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                                        </small>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tagging</label>
+                            <div class="col-sm-6">
+                                <ui-select multiple tagging tagging-label="(custom 'new' label)" data-ng-model="technologies.items">
+                                    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                                    <ui-select-choices repeat="item in availableTechnologies | filter:$select.search">
+                                        {{item}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Disabled</label>
+                            <div class="col-sm-6">
+                                <div>
+                                    <ui-select data-ng-model="person.selected" theme="bootstrap" ng-disabled="true" >
+                                        <ui-select-match placeholder="Select a person in the list or search...">{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-choices repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                            <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                            <small>
+                                                email: {{person.email}}
+                                                age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                                            </small>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Disabled</label>
+                            <div class="col-sm-6">
+                                <ui-select multiple data-ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="true">
+                                    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                                    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                                        {{color}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    Date & time pickers
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Input</label>
+                            <div class="col-sm-10">
+                                <div class="dropdown" uib-dropdown>
+                                    <a class="dropdown-toggle" uib-dropdown-toggle>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-ng-model="data.dateDropDownInput">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-calendar"></i>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu" uib-dropdown-menu>
+                                        <uib-datepicker data-ng-model="data.dateDropDownInput" datetimepicker-config="{ dropdownSelector: '#dropdown2' }"></uib-datepicker>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Daterange</label>
+                            <div class="col-sm-10">
+                                <input date-range-picker class="form-control date-picker" type="text" data-ng-model="date" />
+                            </div>
+                        </div>
+
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Inline</label>
+                            <div class="col-sm-10">
+                                <datetimepicker data-ng-model="data.embeddedDate"
+                                                data-datetimepicker-config="{ startView:'day', minView:'day' }" class="b-solid b-1px b-grey bg-grey-lt-lt"/>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Time</label>
+                            <div class="col-sm-10">
+                                <uib-timepicker data-ng-model="mytime" ng-change="changed()" hour-step="1" minute-step="15" show-meridian="ismeridian"></uib-timepicker>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    Angular pick a date
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Select date</label>
+                            <div class="col-sm-10">
+                                <input type="text" pick-a-date="date" placeholder="Select Date" class="form-control" data-ng-model="pickdate1">
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Select date</label>
+                            <div class="col-sm-10">
+                                <input type="text" pick-a-time="time" placeholder="Select Time" class="form-control" data-ng-model="pickdate2"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    Google places autocomplete
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group move-down">
+                            <label class="col-sm-4 control-label">Autocomplete</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="Autocomplete" class="form-control" ng-autocomplete data-ng-model="result1" details="details1" options="options1"/>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group move-down">
+                            <label class="col-sm-4  control-label">Cities in Canada</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="Autocomplete" class="form-control" ng-autocomplete data-ng-model="result2" details="details2" options="options2"/>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group move-down">
+                            <label class="col-sm-4  control-label">Establishments in the UK</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="Autocomplete" class="form-control" ng-autocomplete data-ng-model="result3" details="details3" options="options3"/>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    Others
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <div class="form-group move-down">
+                            <label class="col-sm-4 control-label">Color pick</label>
+                            <div class="col-sm-8">
+                                <ng-color-picker selected='pselected' colors="pcolors"></ng-color-picker>
+                                <span>{{pselected}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+</div>
+

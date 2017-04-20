@@ -1,0 +1,22 @@
+<div class="section-header">
+    <h1 class="h3 section-text">News List</h1>
+</div>
+<div class="wrapper" data-ng-controller="ListNewsCtrl">
+    <div class="col-md-12" ng-repeat="item in news">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a class="btn btn-sm btn-rounded btn-success btn-line btn-icon" href="#/app/news/edit/{{item.id}}">
+                    <i class="fa fa-pencil"></i>
+                </a>
+               <a  href="#/app/news/view/{{item.id}}"><p ng-bind-html="item.langs.ru.title"></p></a>
+            </div>
+            <div class="panel-body">
+                <p ng-bind-html="item.langs.ru.description"></p>
+            </div>
+            <div class="panel-footer">
+                <p>{{item.date}}</p>
+           </div>
+        </div>
+    </div>
+
+</div>

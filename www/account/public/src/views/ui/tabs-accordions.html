@@ -1,0 +1,348 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Tabs & accordions</h1>
+</div>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-sm-6">
+
+            <uib-tabset>
+                <uib-tab heading="Pages"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Pages</div></uib-tab>
+                <uib-tab heading="Pages"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">UI Kits</div></uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        Components
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading, and a select callback. Pretty cool!</div>
+                </uib-tab>
+            </uib-tabset>
+            
+            <uib-tabset>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-comment"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">comment</div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-globe"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">globe</div>
+                </uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        <i class="fa fa-file"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading, and a select callback. Pretty cool!</div>
+                </uib-tab>
+            </uib-tabset>
+
+            <uib-tabset justified="true">
+                <uib-tab heading="Pages"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Pages</div></uib-tab>
+                <uib-tab heading="Pages"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">UI Kits</div></uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        Components
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading, and a select callback. Pretty cool!</div>
+
+                </uib-tab>
+            </uib-tabset>
+            
+            <uib-tabset justified="true">
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-comment fa-2x"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">comment</div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-globe fa-2x"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">globe</div>
+                </uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        <i class="fa fa-file fa-2x"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading, and a select callback. Pretty cool!</div>
+                </uib-tab>
+            </uib-tabset>
+            
+
+
+            <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" class="b-info">
+                    <uib-accordion-heading class="accordion-toggle">Static Header, initially expanded</uib-accordion-heading>
+                    fdfddf
+                </uib-accordion-group>
+                <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                    {{group.content}}
+                </uib-accordion-group>
+                <uib-accordion-group heading="Dynamic Body Content">
+                    <p>The body of the accordion group grows to fit the contents</p>
+                    <button class="btn btn-default btn-sm" data-ng-click="addItem()">Add Item</button>
+                    <div ng-repeat="item in items">{{item}}</div>
+                </uib-accordion-group>
+                <uib-accordion-group is-open="status.open">
+                    <uib-accordion-heading>
+                        I can have markup, too! <i class="pull-right" data-ng-class="{'fa fa-angle-down': status.open, 'fa fa-angle-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    This is just some content to illustrate fancy headings.
+                </uib-accordion-group>
+            </uib-accordion>
+
+
+            <uib-accordion close-others="oneAtATime" class="m-t-20 accordion-alt">
+                <uib-accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                    <uib-accordion-heading class="accordion-toggle">Static Header, initially expanded</uib-accordion-heading>
+                    fdfddf
+                </uib-accordion-group>
+                <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                    {{group.content}}
+                </uib-accordion-group>
+                <uib-accordion-group heading="Dynamic Body Content">
+                    <p>The body of the accordion group grows to fit the contents</p>
+                    <button class="btn btn-default btn-sm" data-ng-click="items.push('item')">Add Item</button>
+                    <div ng-repeat="item in items">{{item}}</div>
+                </uib-accordion-group>
+                <uib-accordion-group is-open="status.open">
+                    <uib-accordion-heading>
+                        I can have markup, too! <i class="pull-right" data-ng-class="{'fa fa-angle-down': status.open, 'fa fa-angle-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    This is just some content to illustrate fancy headings.
+                </uib-accordion-group>
+            </uib-accordion>
+
+        </div>
+        <div class="col-sm-6">
+            
+            
+            
+            <uib-tabset class="nav-tabs-triangle">
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-comment"> </i> Comments
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Pages</div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-globe"> </i> Ui kit 
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">UI Kits</div>
+                </uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        <i class="fa fa-calendar"> </i> Calendar
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading</div>
+                </uib-tab>
+            </uib-tabset>
+
+            <uib-tabset justified="true" class="nav-line">
+                <uib-tab heading="Pages"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Pages</div></uib-tab>
+                <uib-tab heading="UI kit"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">UI Kits</div></uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        Components
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading</div>
+                </uib-tab>
+            </uib-tabset>
+
+            <uib-tabset class="nav-line">
+                <uib-tab heading="Pages"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Pages</div></uib-tab>
+                <uib-tab heading="Ui Kit"><div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">UI Kits</div></uib-tab>
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+                <uib-tab select="alertMe()">
+                    <uib-tab-heading>
+                        Components
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">I've got an HTML heading, and a select callback. Pretty cool!</div>
+
+                </uib-tab>
+            </uib-tabset>
+
+            <uib-tabset class="nav-line nav-icon">
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-comment"></i> Comments
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Comments</div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <span><i class="fa fa-globe"></i> Notifications </span>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Notif</div>
+                </uib-tab>
+
+                <uib-tab>
+                    <uib-tab-heading>
+                        <span><i class="fa fa-calendar"></i> Calendar</span>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">calendar</div>
+                </uib-tab>
+
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+            </uib-tabset>
+            
+            <div class="row">
+                 <div class="col-sm-12">
+                    <div class=" panel panel-default">
+                        <div class="panel-body">
+                            <uib-tabset class="nav-line nav-icon">
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        Comment
+                                    </uib-tab-heading>
+                                    <div class="p-20">Comments</div>
+                                </uib-tab>
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        Notification
+                                    </uib-tab-heading>
+                                    <div class="p-20">Notif</div>
+                                </uib-tab>
+
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        Calendar
+                                    </uib-tab-heading>
+                                    <div class="p-20">Calendar</div>
+                                </uib-tab>
+
+                                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                                    <div class="p-20">{{tab.content}}</div>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <uib-tabset class="nav-line nav-icon" justified="true">
+                <uib-tab>
+                    <uib-tab-heading>
+                        <i class="fa fa-comment fa-2x"></i>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Comments</div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <span><i class="fa fa-globe fa-2x"></i></span>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Notif</div>
+                </uib-tab>
+
+                <uib-tab>
+                    <uib-tab-heading>
+                        <span><i class="fa fa-calendar fa-2x"></i></span>
+                    </uib-tab-heading>
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">Calendar</div>
+                </uib-tab>
+
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                    <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">{{tab.content}}</div>
+                </uib-tab>
+            </uib-tabset>
+            <div class="row">
+                 <div class="col-sm-6">
+                    <div class=" panel panel-default">
+                        <div class="panel-body">
+                            <uib-tabset class="nav-line nav-icon">
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        <i class="fa fa-comment"></i>
+                                    </uib-tab-heading>
+                                    <div class="p-20">Comments</div>
+                                </uib-tab>
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        <span><i class="fa fa-globe"></i></span>
+                                    </uib-tab-heading>
+                                    <div class="p-20">Notif</div>
+                                </uib-tab>
+
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        <span><i class="fa fa-calendar"></i></span>
+                                    </uib-tab-heading>
+                                    <div class="p-20">Calendar</div>
+                                </uib-tab>
+
+                                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                                    <div class="p-20">{{tab.content}}</div>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class=" panel panel-default">
+                        <div class="panel-body">
+                            <uib-tabset class="nav-line nav-icon" justified="true">
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        <i class="fa fa-comment fa-2x"></i>
+                                    </uib-tab-heading>
+                                    <div class="p-20">Comments</div>
+                                </uib-tab>
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        <span><i class="fa fa-globe fa-2x"></i></span>
+                                    </uib-tab-heading>
+                                    <div class="p-20">Notif</div>
+                                </uib-tab>
+
+                                <uib-tab>
+                                    <uib-tab-heading>
+                                        <span><i class="fa fa-calendar fa-2x"></i></span>
+                                    </uib-tab-heading>
+                                    <div class="p-20">Calendar</div>
+                                </uib-tab>
+
+                                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                                    <div class="p-20">{{tab.content}}</div>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+    </div>
+
+</div>

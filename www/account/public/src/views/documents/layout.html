@@ -1,0 +1,77 @@
+<div class=" bg-lightgrey" data-ng-controller="DocumentCtrl" data-app-layout-application>
+    <div class="column box-border-r col-350 hidden-xs" data-ng-if="!optionsShow" data-ng-hide="$state.is('app.documents.all')">
+        <div class="table-display">
+            <div class="input-holder no-border bg-white box-border-b-light">
+                <i class="fa fa-search fa-2x tosearch"></i>
+                <input id="searchField" type="text" class="form-control no-border no-bg no-shadow" placeholder="Search document..." data-ng-model="searchText">
+            </div>
+            <div class="list-header">
+                DOCUMENTS
+                <a ui-sref="app.documents.all" class="pull-right">Overview</a>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box">
+                        <ul class="list list-hover condensed">
+                            <li ng-repeat="document in documents| filter:searchText | orderBy:'created_date':true" data-ng-click="selectDocument(document.document_id)" ui-sref-active="active">
+                                <a class="item-content" ui-sref="app.documents.view({ docId: document.document_id})">
+                                    <div class="no-m" data-ng-if="document.title.length">
+                                        <strong>{{document.title}}</strong>
+                                    </div>
+                                    <div class="no-m text-muted text-italic" data-ng-if="!document.title.length"><strong>New document</strong></div>
+                                    <div class="text-muted text-md">{{document.created_by}} <span class="pull-right text-xs" title="{{document.created_date}}"><i class="fa fa-clock-o"></i> <span am-time-ago="document.created_date"></span></span></div>
+                                </a>
+                            </li>
+                        </ul>  
+                    </div>
+                </div> 
+            </div>
+            <div class="text-center p-10 bg-white box-border-t-light border-xs-sep-b">
+                <button data-ng-click="create()" class="btn btn-primary btn-rounded btn-line btn-sm"><i class="fa fa-plus"></i> Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="column col-100p">
+        <div class="table-display" ui-view="contentView"></div>
+    </div>
+
+    <div class="column col-250 box-border-l" data-ng-if="optionsShow"> 
+        <div class="table-display">
+            <div class="p-15">
+                <a data-ng-click="getOptions()"><i class="fa fa-long-arrow-left"></i> back</a>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box">
+                        <ul class="chat-widget chat-image scrollable relative m-t-10 chat-full">  
+                            <li ng-repeat="comment in document.comments| orderBy:'datetime':true" data-ng-class="{'from-me':!comment.owner}" style="word-wrap: break-word;">
+                                <img src="{{comment.avatar}}" class="thumb-xs">
+                                <div class="time" am-time-ago="comment.datetime" title="{{comment.datetime}}"></div>
+                                <div class="name">{{comment.user}}</div>
+                                <div class="msgs">
+                                    <div>
+                                        {{comment.comment}}
+                                    </div>
+                                </div>
+                            </li>
+                            <li data-ng-if="!document.comments.length" class="text-center text-muted">no comment yet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <form ng-submit="sendComment()" style="width:100%" data-ng-show="documentShow == 'comments'">
+                <div class="post-widget " style="margin:5px;">
+                    <textarea class="form-control" placeholder="Send your message" data-ng-model="$parent.comment"></textarea>
+                    <div>
+                        <button class="btn btn-text no-bg pull-right btn-xs m-t-3" type="button" data-ng-click="sendComment()">Send</button>
+                        <ul class="nav nav-pills nav-sm">
+                            <li><a><i class="fa fa-upload"></i></a></li>
+                            <li><a><i class="fa fa-camera"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

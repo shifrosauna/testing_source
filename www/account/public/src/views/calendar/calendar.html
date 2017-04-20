@@ -1,0 +1,57 @@
+<div class="row  bg-white" data-ng-controller="CalendarCtrl" data-app-layout-application>
+    <div class="column col-md-9 col-sm-8 box-border-r">
+        <div class="table-display">
+            <div class="p-10 box-border-b bg-light lt clearfix">
+                <button type="button" class="btn btn-success btn-rounded btn-line btn-sm" data-ng-click="addEvent()">
+                    <i class="fa fa-plus"></i> Add event
+                </button>
+
+                <div class="btn-group pull-right">
+                    <label class="btn btn-primary btn-line btn-sm" data-ng-model="view" btn-radio="'agendaDay'" data-ng-click="changeView('agendaDay', 'demoCalendar')">Day</label>
+                    <label class="btn btn-primary btn-line btn-sm" data-ng-model="view" btn-radio="'agendaWeek'" data-ng-click="changeView('agendaWeek', 'demoCalendar')">Week</label>
+                    <label class="btn btn-primary btn-line btn-sm" data-ng-model="view" btn-radio="'month'" data-ng-click="changeView('month', 'demoCalendar')">Month</label>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box bg-light">
+                        <div class="p-10 bg-light">
+                            <div ui-calendar="uiConfig.calendar" class="calendar" data-ng-model="eventSources" calendar="demoCalendar"></div> 
+                            <div class="p-10">
+                                <div class="text-muted text-xs" ng-repeat="alert in alertMessages track by $index">{{alert}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column col-md-3 col-sm-4">
+        <div class="table-display">
+            <div class="p-10 box-border-b bg-light lt clearfix">
+                <div class="p-t-b-5 p-r-l-10"><i class="fa fa-calendar"></i> EVENTS <span class="pull-right badge bg-primary color-white">{{events.length}}</span></div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="a-box bg-light lt">
+                        <div class="p-10 bg-light lt">
+                            <ul class="list-group list-group-gap">
+                                <li class="list-group-item b-4px no-b-rad-i no-b-t no-b-r no-b-b {{event.className.join(' ')}}" ng-repeat="event in events">
+                                    <div>
+                                        {{event.title}}
+                                        <a class="pull-right text-muted" data-ng-click="remove($index)"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    <div class="text-muted text-xs">
+                                        {{event.start| amDateFormat:'dddd, MMM Do'}} - {{event.end| amDateFormat:'dddd, MMM Do'}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

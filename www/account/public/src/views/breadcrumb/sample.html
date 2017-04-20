@@ -1,0 +1,29 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Angular breadcrumb sample</h1>
+</div>
+<div class="wrapper bg-white box-border-b-light">
+    <div>
+        <p>This app is a basic information system for hotel. Its main purpose is to illustrate how work the
+            module <code>angular-breadcrumb</code> in various situations.
+        </p>
+        <p>Here is the state machine :</p> 
+        <pre>
+            ─ home (defined as prefix in the breadcrumb)
+            ─ sample
+            ─ booking (override his parent state to 'sample' in the breadcrumb)
+                └── booking.day (use the angular date filter in label)
+                      └── booking.day.detail (open a popup, not displayed in breadcrumb)
+            ─ room (override his parent state to 'sample' in the breadcrumb)
+                └── room.detail (view included in root's view instead of parent's one, variable in breadcrumb label)
+                      └── room.detail.edit (allow to see the working parameterized link for parent 'room.detail')
+        </pre>
+
+    </div>
+    <div>
+        Let's start navigating :
+        <a class="btn btn-primary" ui-sref="app.components.breadcrumb.room">Rooms</a>
+        <a class="btn btn-primary" ui-sref="app.components.breadcrumb.booking">Booking</a>
+    </div>
+    <div ncy-breadcrumb class="well breadcrumb m-t-10"></div>
+    <div ui-view="bcView"></div>
+</div>

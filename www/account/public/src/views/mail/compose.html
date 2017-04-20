@@ -1,0 +1,31 @@
+<div class="modal-header bg-light b-rad-r-l-6">
+    <a class="text-lg" data-ng-click="cancel()">Cancel</a>
+    <a class="text-lg pull-right" data-ng-click="cancel()">Send</a>
+    <a class="text-lg pull-right m-r-5" data-ng-click="cancel()"><i class='fa fa-paperclip fa-fw'></i></a>
+</div>
+<div class="modal-body no-p-i">
+    <div class="box-border-b-light clearfix p-15 p-t-b-5">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="text-lg m-t-5">To: </span>
+            </span>
+            <ui-select multiple data-ng-model="email.to" theme="bootstrap" theme="select2" ng-disabled="disabled" class='no-border no-bg'>
+                <ui-select-match class="no-border">{{$item.name}} <span class="text-muted text-xs">{{$item.email}}</span></ui-select-match>
+                <ui-select-choices repeat="contact in contacts | filter:$select.search">
+                    {{contact.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+    <div class="box-border-b-light clearfix p-15 p-t-b-5">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="text-lg m-t-5">Subject: </span>
+            </span>
+            <input type="text" class="form-control no-border no-bg" data-ng-model="email.subject">
+        </div>
+    </div>
+    <div style="min-height:400px;" class="relative">
+        <div text-angular data-ng-model="textAngular" class="textAngular" ta-toolbar="[['h1','h2','h3'],['bold','italics','underline'],['justifyLeft','justifyCenter','justifyRight']]"></div>
+    </div>
+</div>

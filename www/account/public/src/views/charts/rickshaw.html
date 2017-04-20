@@ -1,0 +1,79 @@
+<div class="wrapper" data-ng-controller="ChartsCtrl">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Area
+                </div>
+                <div class="panel-body" style="position:relative;">
+                    <rickshaw rickshaw-options="rickshaw.simple.options" rickshaw-series="rickshaw.simple.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Multi area
+                </div>
+                <div class="panel-body">
+                    <rickshaw rickshaw-options="rickshaw.multiarea.options" rickshaw-series="rickshaw.multiarea.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Bar
+                </div>
+                <div class="panel-body">
+                    <rickshaw rickshaw-options="rickshaw.barchart.options" rickshaw-series="rickshaw.barchart.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Line
+                </div>
+                <div class="panel-body">
+                    <rickshaw rickshaw-options="rickshaw.oneline.options" rickshaw-series="rickshaw.oneline.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Multi line
+                </div>
+                <div class="panel-body">
+                    <rickshaw rickshaw-options="rickshaw.multiline.options" rickshaw-series="rickshaw.multiline.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Stacked bar
+                </div>
+                <div class="panel-body">
+                    <rickshaw rickshaw-options="rickshaw.stackedchart.options" rickshaw-series="rickshaw.stackedchart.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Scatter plot
+                </div>
+                <div class="panel-body">
+                    <rickshaw rickshaw-options="rickshaw.scatterplot.options" rickshaw-series="rickshaw.scatterplot.data"></rickshaw>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

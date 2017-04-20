@@ -1,0 +1,90 @@
+<ul class="nav main-nav" data-ng-controller="AppsidebarCtrl">
+    <li class="clearfix">
+        <div class="nav-tools nav-back">
+            <a class="backto" ui-sref="app.dashboard.v1">
+                <i class="fa fa-angle-left icon-2x"></i> back
+            </a>
+            <div class="text-center nav-back-text">
+                Mail
+            </div>
+        </div>
+    </li>
+    <li class="divider no-m-i no-p-i"></li>
+    <li>
+        <div class="nav-tools nav-btn fix-border-top text-center">
+            <button class="btn btn-primary btn-line btn-rounded" data-ng-click="composeEmail()">
+                <i class="fa fa-pencil"></i> 
+                <span class="nav-btn-text">Compose</span>
+            </button>
+        </div>
+    </li>
+    <li data-ng-class="{active:$state.includes('mail')}">
+        <a ui-sref="mail.inbox">
+            <i class="fa fa-inbox"></i> 
+            <div>
+                <span>Inbox</span>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-star-o"></i> 
+            <div>
+                <span>VIP</span>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-check"></i>
+            <div>
+                <span>Sent</span>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-save"></i> 
+            <div>
+                <span>Archive</span>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-trash-o"></i> 
+            <div>
+                <span>Trash</span>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-bug"></i> 
+            <div>
+                <span>Junk</span>
+            </div>
+        </a>
+    </li>
+    <li class="divider"></li>
+    <li class="text-wrapper">
+        Folders
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-folder-o no-b-i text-primary"></i> 
+            <div>
+                <span>Personal</span>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="fa fa-folder-o no-b-i text-primary"></i> 
+            <div>
+                <span>Home</span>
+            </div>
+        </a>
+    </li>
+
+</ul>

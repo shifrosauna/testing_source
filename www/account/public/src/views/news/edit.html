@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Item</div>
+    <div class="wrapper" ng-init="toaster.type = 'success'" data-ng-controller="EditNewsCtrl">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+
+                    <label>Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="item.date" is-open="popup.opened"  ng-required="true" close-text="Close"/>
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                    </p>
+                </div>
+                <uib-tabset>
+                    <uib-tab heading="RU">
+                        <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">
+                            <div class="form-group">
+                                <label>Название</label>
+                                <input type="text" class="form-control" placeholder="Введите название новости" ng-model="item.langs.ru.title">
+                            </div>
+                            <div class="form-group">
+                                <label>Новость</label>
+                                <textarea class="form-control" placeholder="Введите содержимое новости" rows="5" ng-model="item.langs.ru.description"></textarea>
+                            </div>
+                        </div>
+                    </uib-tab>
+                    <uib-tab heading="EN">
+                        <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-20">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="Enter a title of news" ng-model="item.langs.en.title">
+                            </div>
+                            <div class="form-group">
+                                <label>News</label>
+                                <textarea class="form-control" placeholder="Enter text of news" rows="5" ng-model="item.langs.en.description"></textarea>
+                            </div>
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+        <button class="btn btn-info btn-rounded btn-sm" data-ng-click="updateNews(news)">Update Item</button>
+           <a href="" class="btn btn-danger btn-rounded btn-sm" data-ng-click="deleteNews();">Delete Item</a>
+    </div>
+    </div>
+</div>

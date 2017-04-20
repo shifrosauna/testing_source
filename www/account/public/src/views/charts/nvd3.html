@@ -1,0 +1,109 @@
+<div class="wrapper" data-ng-controller="ChartsCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    Responsive Horizontal Bar Chart
+                </div>
+                <div class="panel-body">
+                    <nvd3-bar-graph chart-id="horizontal" data="nvd3.bar" duration="350" width="1000" height="500" horizontal="true" responsive="true"></nvd3-bar-graph>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    UnResponsive Vertical Bar Chart
+                </div>
+                <div class="panel-body">
+                    <nvd3-bar-graph chart-id="vertical" data="nvd3.bar" duration="350" width="1000" height="500" div-class="horizontalChart"></nvd3-bar-graph>
+                </div>
+            </div>       
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    Line Chart - Responsive
+                </div>
+                <div class="panel-body">
+                    <nvd3-line-graph chart-id="chart1" data="nvd3.line" responsive="true" width="1000" height="500" duration="2000" guide="true" xlabel="X-AXIS" ylabel="Y-AXIS"></nvd3-line-graph>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    Line Chart - UnResponsive
+                </div>
+                <div class="panel-body">
+                    <nvd3-line-graph chart-id="chart2" data="nvd3.line" width="1000" height="500" duration="2000" guide="true" xlabel="X-AXIS" ylabel="Y-AXIS"></nvd3-line-graph>
+                </div>
+            </div>       
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    Responsive Line Chart
+                </div>
+                <div class="panel-body">
+                    <nvd3-line-plus-bar-graph chart-id="chart3" data="nvd3.linebar" responsive="true" width="1000" height="400" duration="2000" xlabel="X-AXIS" y1label="Y-AXIS" y2label="Y-AXIS"></nvd3-line-plus-bar-graph>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    UnResponsive Line Chart
+                </div>
+                <div class="panel-body">
+                    <nvd3-line-plus-bar-graph chart-id="chart4" data="nvd3.linebar" responsive="false" width="1000" height="400" duration="2000" xlabel="X-AXIS" y1label="Y-AXIS" y2label="Y-AXIS"></nvd3-line-plus-bar-graph>
+               </div>
+            </div>       
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    Responsive Real Time Changing pie chart
+                </div>
+                <div class="panel-body">
+                    <nvd3-pie-chart chart-id="chart5" data="nvd3.pie" width="300" height="300" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    UnResponsive Fixed data pie chart
+                </div>
+                <div class="panel-body">
+                    <nvd3-pie-chart chart-id="chart6" data="nvd3.pieFixed" div-class="pieChart" width="300" height="300" duration="1000" label-type="percent" colors="colors"></nvd3-pie-chart>
+               </div>
+            </div>       
+        </div>
+    </div>
+    
+<!--    <div class="row">
+        <div class="col-md-12">
+            <nvd3-scatter-graph data="nvd3.scatter" width="1000" height="600" duration="2000" force-line="true" responsive="true"></nvd3-scatter-graph>
+        </div>
+    </div>-->
+
+</div>
+

@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-6" data-ng-controller="MapsCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Filter Markers
+                </div>
+                <div class="panel-body no-p">
+                    <div>     
+                        <gm-map gm-map-id="'filterMarkersMap'" gm-center="center" gm-zoom="zoom" 
+                                gm-map-options="options.map" class="map" style="width:100%;height:500px;">
+                            <gm-markers gm-objects="people"
+                                        gm-id="object.id"
+                                        gm-position="{lat: object.location.lat, lng: object.location.lng}"
+                                        gm-marker-options="getMarkerOptions(object)">
+                            </gm-markers>
+                        </gm-map>
+                    </div>
+                    <div>
+                        <div class="input-holder bg-white">
+                            <i class="fa fa-search fa-2x tosearch"></i>
+                            <input type="text" class="form-control no-border no-bg no-shadow" placeholder="Search name..." data-ng-model="filters.name" ng-change="filterPeople()">
+                        </div>
+                        
+                        <ul class="simple-list no-m no-border" style="height:200px;overflow: auto;">
+                            <li ng-repeat="(id, person) in filteredPeople">
+                                {{person.name}} <span class="text-xs text-muted">{{person.gender}}</span>
+                            </li>
+                        </ul>
+                        <div class="checkbox p-10 p-r-l-15 box-border-t-light no-m">
+                            <label class="app-checkbox"><input type="checkbox" data-ng-model="filters.male" ng-change="filterPeople()"><i></i> Male</label>
+                            <label class="app-checkbox"><input type="checkbox" data-ng-model="filters.female" ng-change="filterPeople()"><i></i> Female</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" data-ng-controller="DragMarkerCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Drag marker
+                </div>
+                <div class="panel-body no-p">
+                    <div>
+                        <gm-map gm-map-id="'dragMarkerMap'" gm-center="center" gm-zoom="zoom" 
+                                gm-map-options="options.map" class="map" style="width:100%;height:500px;">
+
+                            <gm-markers gm-objects="houses"
+                                        gm-id="object.id"
+                                        gm-position="{lat: object.lat, lng: object.lng}"
+                                        gm-marker-options="options.marker(object)"
+                                        gm-on-dragend="setHouseLocation(object, marker)">
+                            </gm-markers>
+
+                        </gm-map>
+                    </div>
+                    <div>
+                        <p class="no-m m-10 text-center">
+                            Drag the markers to set the location.
+                        </p>
+                        <p class="no-m box-border-t-light">
+                        <div ng-repeat="house in houses" class="p-10 box-border-b-light">
+                            {{house.name}} location: {{house.lat| number:2}}, {{house.lng| number:2}} 
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

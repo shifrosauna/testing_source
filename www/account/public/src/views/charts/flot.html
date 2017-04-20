@@ -1,0 +1,68 @@
+<div class="wrapper" data-ng-controller="ChartsCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Bar
+                </div>
+                <div class="panel-body relative">
+                    <div style="width:100%;height:300px">
+                        <flot dataset="flot.bar.data" options="flot.bar.options"></flot>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Pie
+                </div>
+                <div class="panel-body">
+                    <div style="width:100%;height:300px">
+                        <flot dataset="flot.pie.data" options="flot.pie.options"></flot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Line
+                </div>
+                <div class="panel-body relative">
+                    <div style="width:100%;height:300px">
+                        <flot dataset="flot.line.data" options="flot.line.options"></flot>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Area
+                </div>
+                <div class="panel-body">
+                    <div style="width:100%;height:300px">
+                       <flot dataset="flot.linearea.data" options="flot.linearea.options"></flot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Multi line
+                </div>
+                <div class="panel-body relative">
+                    <div style="width:100%;height:300px">
+                        <flot dataset="flot.multidata.data" options="flot.multidata.options"></flot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

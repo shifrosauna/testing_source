@@ -1,0 +1,140 @@
+<div class="wrapper" data-ng-controller="ChartsCtrl">
+    <div class="row">
+        <div class="col-md-12  m-b-20">
+            <div class="bg-white shadow-lt b-1px b-solid b-eee">
+                <table class="table no-m">
+                    <thead>
+                        <tr>
+                            <th style="width:20px;"></th>
+                            <th>Data</th>
+                            <th>Dummy</th>
+                            <th>Lorem</th>
+                            <th>Age</th>
+                            <th>Ipsum</th>
+                            <th>Email</th>
+                            <th style="width:110px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>5454</td>
+                            <td>44</td>
+                            <td>NYC Blabla street 1343.</td>
+                            <td>example@gmail.com</td>
+                            <td>
+                                <div>
+                                    <spark-line data="sparkline.inline1.data" options="sparkline.inline1.options"></spark-line>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Don</td>
+                            <td>Jon</td>
+                            <td>4545</td>
+                            <td>22</td>
+                            <td>San Diego Blabla street 34.</td>
+                            <td>example@gmail.com</td>
+                            <td>
+                                <div>
+                                    <spark-line data="sparkline.inline2.data" options="sparkline.inline2.options"></spark-line>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Mike</td>
+                            <td>Hum</td>
+                            <td>4334</td>
+                            <td>16</td>
+                            <td>LA Blabla street 1.</td>
+                            <td>example@gmail.com</td>
+                            <td>
+                                <div>
+                                    <spark-line data="sparkline.pie.data" options="sparkline.pie.options"></spark-line>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Jan</td>
+                            <td>Tum</td>
+                            <td>4334</td>
+                            <td>5</td>
+                            <td>SF Blabla street3.</td>
+                            <td>example@gmail.com</td>
+                            <td>
+                                <div>
+                                    <spark-line data="sparkline.line.data" options="sparkline.line.options"></spark-line>
+                                </div> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td>Jospeh</td>
+                            <td>Dummy</td>
+                            <td>33</td>
+                            <td>12</td>
+                            <td>Redmond Blabla street3.</td>
+                            <td>example@gmail.com</td>
+                            <td>
+                                <div>
+                                    <spark-line data="sparkline.tristate.data" options="sparkline.tristate.options"></spark-line>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>6.</td>
+                            <td>Steve</td>
+                            <td>Oak</td>
+                            <td>3223</td>
+                            <td>45</td>
+                            <td>Cupertione Blabla street3.</td>
+                            <td>example@gmail.com</td>
+                            <td>
+                                <div>
+                                    <spark-line data="sparkline.discrete.data" options="sparkline.discrete.options"></spark-line>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>  
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Big pie
+                </div>
+                <div class="panel-body relative text-center">
+                    <spark-line data="sparkline.bigpie.data" options="sparkline.bigpie.options"></spark-line>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Big bar
+                </div>
+                <div class="panel-body relative text-center">
+                    <spark-line data="sparkline.bigbar.data" options="sparkline.bigbar.options"></spark-line>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Big area
+                </div>
+                <div class="panel-body relative text-center">
+                    <spark-line data="sparkline.bigline.data" options="sparkline.bigline.options"></spark-line>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

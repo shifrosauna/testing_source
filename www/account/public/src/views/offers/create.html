@@ -1,0 +1,518 @@
+<div class="wrapper">
+    <div class="" ng-init="wizardTabs = 1" data-ng-controller="CreateOffersCtrl">
+        <div data-ng-if="!create" class="m-b-10">
+            <button data-ng-click="updateOffer()" class="btn btn-success btn-sm">Update Offer</button>
+            <button data-ng-click="deleteOffer()" class="btn btn-danger btn-sm">Delete Offer</button>
+        </div>
+        <ul class="nav nav-tabs nav-tabs-triangle nav-icon">
+            <li data-ng-class="{active:wizardTabs == 1}">
+                <a data-ng-show="create" data-ng-click="wizardTabs = 1">
+                    <i class="fa fa-folder-o"> </i> Starting
+                </a>
+                <a data-ng-show="!create" data-ng-click="wizardTabs = 1">
+                    <i class="fa fa-folder-o"> </i> Main Info
+                </a>
+            </li>
+            <li data-ng-class="{active:wizardTabs == 2}">
+                <a data-ng-click="wizardTabs = 2">
+                    <i class="fa fa-bell-o"> </i> Tracking
+                </a>
+            </li>
+            <li data-ng-class="{active:wizardTabs == 3}">
+                <a data-ng-click="wizardTabs = 3">
+                    <i class="fa fa-bell-o"> </i> Goals
+                </a>
+            </li>
+            <li data-ng-show="create" data-ng-class="{active:wizardTabs == 4}">
+                <a data-ng-click="wizardTabs = 4">
+                    <i class="fa fa-check"> </i> Finish
+                </a>
+            </li>
+        </ul>
+        <div data-ng-switch="wizardTabs" ng-init="toaster.type = 'success'">
+            <div data-ng-switch-when="1">
+                <div class="p-15 bg-white box-border-b-light animated fadeIn box-border-l-light box-border-r-light">
+                    <div class='row '>
+                        <div class="col-sm-5">
+                            <div class="p-20">
+                                <div><i class="fa fa-fire fa-3x"></i></div>
+                                <h3 data-ng-show="create" class="m-b-20">Hello, this is the first step to create
+                                    offer</h3>
+                                <h3 data-ng-show="!create" class="m-b-20">Update Main Info</h3>
+                                <div class="">
+                                    First step...
+                                </div>
+                                <div class="text-xs text-muted m-t-10">
+                                    *Some info about offers
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 ">
+                            <form role="form" class="">
+                                <div class="form-group-alt-attached">
+                                    <div class="row">
+                                        <uib-tabset>
+                                            <uib-tab heading="RU">
+                                                <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Название</label>
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="Введите название оффера"
+                                                                       data-ng-model="form.translates.ru.name">
+                                                                <input type="hidden" data-ng-model="form.translates.ru.lang">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Описание</label>
+                                                <textarea class="form-control" placeholder="Введите описание оффера"
+                                                          style="height:70px;"
+                                                          data-ng-model="form.translates.ru.description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab heading="EN">
+                                                <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Title</label>
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="Enter offers title"
+                                                                       data-ng-model="form.translates.en.name">
+                                                                <input type="hidden" data-ng-model="form.translates.en.lang">
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Description</label>
+                                                <textarea class="form-control" placeholder="Enter offers description"
+                                                          style="height:70px;"
+                                                          data-ng-model="form.translates.en.description"></textarea>
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                        </uib-tabset>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-xs-2">
+                                            <div class="form-group form-group-alt">
+                                                <label>Статус</label>
+                                                <select
+                                                        data-ng-model="form.status"
+                                                        ng-init="form.status = form.status || statusList[2].value"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched">
+                                                    <option value="{{ status.value }}"
+                                                            ng-repeat="status in ::statusList">{{ status.name
+                                                        }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-2">
+                                            <div class="form-group form-group-alt">
+                                                <label>Доступ</label>
+                                                <select
+                                                        data-ng-model="form.availability"
+                                                        ng-init="form.availability = form.availability|| availabilityList[0].value"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched">
+                                                    <option value="{{ availability.value }}"
+                                                            ng-repeat="availability in ::availabilityList">{{
+                                                        availability.name
+                                                        }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-7 col-xs-6">
+                                            <div class="form-group form-group-alt">
+                                                <label>Preview URL:</label>
+                                                <input type="text" class="form-control"
+                                                       placeholder="Ссылка на главную страницу без геотаргетига, для просмотра главной страницы."
+                                                       data-ng-model="form.previewUrl">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-alt">
+                                                <label>Иконка:</label>
+                                                <input type="file" data-ng-model="form.icon"
+                                                       data-ng-init="form.icon = 'img/avatar1.jpg' ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox p-r-l-10">
+                                    <button type="button" class="btn btn-sm btn-primary btn-line btn-rounded pull-right"
+                                            data-ng-click="$parent.wizardTabs = 2">Next <i
+                                            class="fa fa-long-arrow-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-ng-switch-when="2">
+                <div class="p-15 bg-white box-border-b-light animated fadeIn box-border-l-light box-border-r-light">
+                    <div class='row '>
+                        <div class="col-sm-5">
+                            <div class="p-20">
+                                <div><i class="fa fa-key fa-3x"></i></div>
+                                <h3 data-ng-show="create" class="m-b-20">Second</h3>
+                                <h3 data-ng-show="!create" class="m-b-20">Tracking</h3>
+                                <div data-ng-show="create" class="">
+                                    This is second step to create Tracking offer. Enter prices, countries, devices and
+                                    link for
+                                    offer!
+                                </div>
+                                <div data-ng-show="!create" class="">
+                                    This is second step to update Tracking offer!
+                                </div>
+                                <div class="text-xs text-muted m-t-10">
+                                    Some info....
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 ">
+                            <form role="form" class="">
+                                <div class="form-group-alt-attached"
+                                     ng-repeat="tracking in form.tracking track by $index">
+                                    <br><b>Tracking {{$index +1}}</b>
+                                    <button class="btn btn-danger btn-rounded btn-line  btn-xs"
+                                            data-ng-click="deleteTracking($index)">
+                                        <i class="fa fa-remove"></i>
+                                        Delete Tracking {{$index+1}}
+                                    </button>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-alt">
+                                                <label>Advertiser</label>
+                                                <select
+                                                        ng-model="tracking.advertiserId"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                        placeholder="Select advertiser"
+                                                        ng-options="i.id as (i.id + '. ' + i.name) for i in ::advertisers">
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-alt">
+                                                <label>Link</label>
+                                                <input class="form-control"
+                                                       placeholder="Link.."
+                                                       data-ng-model="tracking.link">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Payout</label>
+                                                <input class="form-control" placeholder="0"
+                                                       data-ng-model="tracking.payout">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Payout currency</label>
+                                                <select
+                                                        data-ng-model="tracking.payoutCurrency"
+                                                        ng-init="tracking.payoutCurrency = tracking.payoutCurrency || currencyList[0]"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                        placeholder="Select currency">
+                                                    <option value="{{ currency }}"
+                                                            ng-repeat="currency in ::currencyList">{{ currency }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Revenue</label>
+                                                <input class="form-control" placeholder="0"
+                                                       data-ng-model="tracking.revenue">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Revenue currency</label>
+                                                <select
+                                                        data-ng-model="tracking.revenueCurrency"
+                                                        ng-init="tracking.revenueCurrency = tracking.revenueCurrency || currencyList[0]"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                        placeholder="Select currency">
+                                                    <option value="{{ currency }}"
+                                                            ng-repeat="currency in ::currencyList">{{ currency }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-alt">
+                                                <label>Devices</label>
+                                                <div>
+                                                    <select multiple
+                                                            data-ng-model="tracking.devices"
+                                                            class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                            placeholder="Select devices">
+                                                        <option value="{{ devices }}"
+                                                                ng-repeat="devices in ::devicesList">{{ devices }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-alt">
+                                                <label>Countries</label>
+                                                <div>
+                                                    <select multiple
+                                                            data-ng-model="tracking.countries"
+                                                            class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                            placeholder="Select countries">
+                                                        <option value="{{ country }}"
+                                                                ng-repeat="country  in ::countries">{{ country }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="m-b-10">
+                                    <button data-ng-click="add()" class="btn btn-success btn-sm">Add more Tracking
+                                    </button>
+                                </div>
+                                <div class="checkbox p-r-l-10">
+                                    <button type="button"
+                                            class="btn btn-sm btn-primary btn-line btn-rounded pull-right "
+                                            data-ng-click="$parent.wizardTabs = 3">Next <i
+                                            class="fa fa-long-arrow-right"></i></button>
+                                    <button type="button"
+                                            class="btn btn-sm btn-default btn-line btn-rounded pull-right m-r-5"
+                                            data-ng-click="$parent.wizardTabs = 1"><i class="fa fa-long-arrow-left"></i>
+                                        Previous
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-ng-switch-when="3">
+                <div class="p-15 bg-white box-border-b-light animated fadeIn box-border-l-light box-border-r-light">
+                    <div class='row '>
+                        <div class="col-sm-5">
+                            <div class="p-20">
+                                <div><i class="fa fa-key fa-3x"></i></div>
+                                <h3 data-ng-show="create" class="m-b-20">The third </h3>
+                                <h3 data-ng-show="!create" class="m-b-20">Tracking</h3>
+                                <div data-ng-show="create" class="">
+                                    This is the third step to create Goals offer.
+                                </div>
+                                <div data-ng-show="!create" class="">
+                                    This is the third step to update Goals offer!
+                                </div>
+                                <div class="text-xs text-muted m-t-10">
+                                    Some info....
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 ">
+                            <form role="form" class="">
+                                <div class="form-group-alt-attached "
+                                     ng-repeat="goals in form.goals track by $index">
+                                    <br><b>Goal {{$index+1}}</b>
+                                    <button class="btn btn-danger btn-rounded btn-line  btn-xs"
+                                            data-ng-click="deleteGoal($index)">
+                                        <i class="fa fa-remove"></i>
+                                        Delete Goal {{$index+1}}
+                                    </button>
+                                    <div class="row">
+                                        <uib-tabset>
+                                            <uib-tab heading="RU">
+                                                <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Название</label>
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="Введите название оффера"
+                                                                       data-ng-model="goals.translates.ru.name">
+                                                                <input type="hidden" data-ng-model="goals.translates.ru.lang">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Описание</label>
+                                                <textarea class="form-control" placeholder="Введите описание оффера"
+                                                          style="height:70px;"
+                                                          data-ng-model="goals.translates.ru.description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab heading="EN">
+                                                <div class="p-50 b-1px b-solid b-tab-holder bg-white m-b-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Title</label>
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="Enter offers title"
+                                                                       data-ng-model="goals.translates.en.name">
+                                                                <input type="hidden" data-ng-model="goals.translates.en.lang">
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-alt">
+                                                                <label>Description</label>
+                                                <textarea class="form-control" placeholder="Enter offers description"
+                                                          style="height:70px;"
+                                                          data-ng-model="goals.translates.en.description"></textarea>
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                        </uib-tabset>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Payout</label>
+                                                <input class="form-control" placeholder="0"
+                                                       data-ng-model="goals.payout">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Payout currency</label>
+                                                <select
+                                                        data-ng-model="goals.payoutCurrency"
+                                                        ng-init="goals.payoutCurrency = goals.payoutCurrency || currencyList[0]"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                        placeholder="Select currency">
+                                                    <option value="{{ currency }}"
+                                                            ng-repeat="currency in ::currencyList">{{ currency }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Revenue</label>
+                                                <input class="form-control" placeholder="0"
+                                                       data-ng-model="goals.revenue">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-alt">
+                                                <label>Revenue currency</label>
+                                                <select
+                                                        data-ng-model="goals.revenueCurrency"
+                                                        ng-init="goals.revenueCurrency = goals.revenueCurrency || currencyList[0]"
+                                                        class="form-control ng-valid ng-dirty ng-valid-parse ng-touched"
+                                                        placeholder="Select currency">
+                                                    <option value="{{ currency }}"
+                                                            ng-repeat="currency in ::currencyList">{{ currency }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="m-b-10">
+                                    <button data-ng-click="addGoal()" class="btn btn-success btn-sm">Add Goal
+                                    </button>
+                                </div>
+                                <div class="checkbox p-r-l-10">
+                                    <button data-ng-show="create" type="button"
+                                            class="btn btn-sm btn-primary btn-line btn-rounded pull-right "
+                                            data-ng-click="$parent.wizardTabs = 4">Next <i
+                                            class="fa fa-long-arrow-right"></i></button>
+                                    <button type="button"
+                                            class="btn btn-sm btn-default btn-line btn-rounded pull-right m-r-5"
+                                            data-ng-click="$parent.wizardTabs = 2"><i class="fa fa-long-arrow-left"></i>
+                                        Previous
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-ng-if="create" data-ng-switch-when="4">
+                <div class="p-30 bg-white box-border-b-light clearfix animated fadeIn box-border-l-light box-border-r-light">
+                    <h3 class="text-center">Finish to create offer!</h3>
+                    <div class="text-center"><i class="fa fa-smile-o fa-3x"></i></div>
+                    <div class="text-center p-b-t-15 m-b-15">
+                        <button type="button" class="btn btn-primary btn-line btn-rounded btn-lg"
+                                data-ng-click="createOffers()" wz-next>Finish
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h4>Questions</h4>
+                            <div class="m-b-10">
+                                <i class="fa fa-question pull-left fa-3x"></i>
+                                Information about questions for offers
+                            </div>
+                            <div class="text-xs text-muted">
+                                Ask you question.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Support</h4>
+                            <div class="m-b-10">
+                                <i class="fa fa-ambulance pull-left fa-3x"></i>
+                                Information about support.
+                            </div>
+                            <div class="text-xs text-muted">
+                                Support contact.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Rights and Duties</h4>
+                            <div class="m-b-10">
+                                <i class="fa fa-anchor pull-left fa-3x"></i>
+                                Information about Rights and Duties
+                            </div>
+                            <div class="text-xs text-muted">
+                                some info
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,626 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Projects</h1>
+    <!--display:table-cell;float:none;line-height: 1;vertical-align: middle; -->
+</div>
+<div class="input-holder bg-white ng-scope">
+    <i class="fa fa-search fa-2x tosearch"></i>
+    <input type="text" class="form-control no-border no-bg no-shadow" data-ng-model="searchText" autofocus="" style="" placeholder="Search project...">
+    <div class="operation">
+        <button type="button" class="btn btn-link data-ng-hide" data-ng-show="searchText.length >= 1" data-ng-click="searchText = ''">
+            <i class="fa fa-times fa-fw"></i>
+        </button>
+    </div>
+</div>
+<div class="m-l-15 hidden-xs">
+    <div class="row text-muted">
+        <div class="col-md-4 col-sm-4">
+            <div class="p-5">Data</div>
+        </div>
+        <div class="col-md-1 col-sm-1 text-center">
+            <div class="p-5">Due</div>
+        </div>
+        <div class="col-md-2 col-sm-2 text-center">
+            <div class="p-5">Commits</div>
+        </div>
+        <div class="col-md-2 col-sm-2 text-center">
+            <div class="p-5">Activity</div>
+        </div>
+        <div class="col-md-3 col-sm-3 text-right">
+            <div class="p-5">Members</div>
+        </div>
+    </div>
+</div>
+<ul class="list list-hover condensed">
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-desktop fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>WebApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">AngularJS</span>
+                            <span class="label label-tag">NodeJS</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center text-danger">
+                        3 days
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[41, 42, 43, 44, 42, 43, 44]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[33, 34, 35, 36, 35, 33]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-default btn-rounded btn-sm"><strong>+5</strong></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-mobile-phone fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>MobileApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">TitaniumMobile</span>
+                            <span class="label label-tag">PhoneGap</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center text-warning">
+                        5 days
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[11, 15, 16, 17, 18, 19, 20]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[11, 32, 34, 44, 65, 66]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-tablet fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>TabletApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">NodeJS</span>
+                            <span class="label label-tag">CSS</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        10 days
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[44, 44, 23, 25, 29, 11, 12]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[11, 22, 44, 36, 55, 66]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-default btn-rounded btn-sm"><strong>+2</strong></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-file-archive-o fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>ImportApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">MongoDB</span>
+                            <span class="label label-tag">MySQL</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        1 month
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[22, 11, 21, 55, 53, 66, 62]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[11, 33, 22, 44, 33, 12]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-default btn-rounded btn-sm"><strong>+1</strong></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-desktop fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>WebApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">AngularJS</span>
+                            <span class="label label-tag">NodeJS</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center text-danger">
+                        3 days
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[41, 42, 43, 44, 42, 43, 44]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[33, 34, 35, 36, 35, 33]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-default btn-rounded btn-sm"><strong>+5</strong></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-mobile-phone fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>MobileApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">TitaniumMobile</span>
+                            <span class="label label-tag">PhoneGap</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center text-warning">
+                        5 days
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[11, 15, 16, 17, 18, 19, 20]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[11, 32, 34, 44, 65, 66]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-tablet fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>TabletApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">NodeJS</span>
+                            <span class="label label-tag">CSS</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        10 days
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[44, 44, 23, 25, 29, 11, 12]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[11, 22, 44, 36, 55, 66]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-default btn-rounded btn-sm"><strong>+2</strong></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+    <li>
+        <div class="item-content no-p-t-b">
+            <div class="row r-sm-table">
+                <div class="col-md-4 c-sm-cell">
+                    <div class="m-t-b-15">
+                        <i class="fa fa-file-archive-o fa-3x pull-left text-muted fa-fw"></i>
+                        <div class="h4 no-m">
+                            <a href><strong>ImportApp</strong></a> 
+                        </div>
+                        <div class="text-muted text-md m-b-3">
+                            Short description of the project
+                        </div>
+                        <span class="">
+                            <span class="label label-tag">MongoDB</span>
+                            <span class="label label-tag">MySQL</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        1 month
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center ">
+                        <spark-line data="[22, 11, 21, 55, 53, 66, 62]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-4 c-sm-cell">
+                    <div class="m-t-b-15 text-center">
+                        <spark-line data="[11, 33, 22, 44, 33, 12]" options="{
+                                    type: 'bar',
+                                    barColor: '#ccc',
+                                    lineWidth: 1,
+                                    'barWidth': 8, 
+                                    'barSpacing': 4, 
+                                    height: '35px',
+                                    width: '100%'
+                                    }"></spark-line>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12 c-sm-cell">
+                    <div class="m-t-b-15 text-right">
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar1.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/avatar2.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-default btn-rounded btn-sm"><strong>+1</strong></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </li>
+</ul>
+
+<div class="m-t-b-5 text-center">
+    <ul class="pagination">
+        <li class="disabled"><a href="#">«</a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>

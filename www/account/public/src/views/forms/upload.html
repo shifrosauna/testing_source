@@ -1,0 +1,100 @@
+<div class="wrapper" data-ng-controller="UploadCtrl">
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <h3 class='no-m m-b-10'>Select files</h3>
+
+            <div data-ng-show="uploader.isHTML5">
+                <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                <div class="bg-white b-dashed b-2px b-lt p-30 m-b-20" nv-file-over="" uploader="uploader">
+                    Base drop zone
+                </div>
+
+                <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }" class=''>
+                    <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="bg-grey-lt b-dashed b-2px b-lt p-30 m-b-20">
+                        Another drop zone with its own settings
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+            Multiple
+            <input type="file" nv-file-select="" uploader="uploader" multiple  data-ng-model='multipleUpload'><br/>
+
+            Single
+            <input type="file" nv-file-select="" uploader="uploader" data-ng-model='singleUpload'>
+        </div>
+
+        <div class="col-md-9" style="margin-bottom: 40px">
+
+            <h3 class='no-m m-b-10'>Upload queue</h3>
+            <p>Queue length: {{ uploader.queue.length}}</p>
+
+            <table class="table bg-white b-rad-3 b-1px b-solid b-lt">
+                <thead>
+                    <tr>
+                        <th width="50%">Name</th>
+                        <th data-ng-show="uploader.isHTML5">Size</th>
+                        <th data-ng-show="uploader.isHTML5">Progress</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in uploader.queue">
+                        <td><strong>{{ item.file.name}}</strong></td>
+                        <td data-ng-show="uploader.isHTML5" nowrap>{{ item.file.size / 1024 / 1024|number:2 }} MB</td>
+                        <td data-ng-show="uploader.isHTML5">
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span data-ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span data-ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                            <span data-ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-success btn-xs" data-ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                <span class="glyphicon glyphicon-upload"></span> Upload
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" data-ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" data-ng-click="item.remove()">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    <tr data-ng-if='!uploader.queue.length'>
+                        <td colspan='100' class='text-center text-muted'>Select file...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <div>
+                    Queue progress:
+                    <div class="progress progress-xs" style="">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success btn-s" data-ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                </button>
+                <button type="button" class="btn btn-warning btn-s" data-ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                </button>
+                <button type="button" class="btn btn-danger btn-s" data-ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

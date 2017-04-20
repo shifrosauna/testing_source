@@ -1,0 +1,277 @@
+<div class="wrapper" data-ng-controller="EditableFormCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading ">Editable form</div>
+                <div class="panel-body">
+                    <form editable-form name="editableForm" onaftersave="saveUser()" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">User name</label>
+                            <div class="col-lg-10">
+                                <p editable-text="user.name" e-name="name" onbeforesave="checkName($data)" e-required class="form-control-static">{{ user.name || 'empty' }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Status</label>
+                            <div class="col-lg-10">
+                                <p editable-select="user.status" e-name="status" e-ng-options="s.value as s.text for s in statuses" class="form-control-static">
+                                    {{ (statuses | filter:{value: user.status})[0].text || 'Not set'}}
+                                </p>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Group</label>
+                            <div class="col-lg-10">
+                                <p editable-select="user.group" e-name="group" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups" class="form-control-static">
+                                    {{ showGroup()}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="button" class="btn btn-default" data-ng-click="editableForm.$show()" data-ng-show="!editableForm.$visible">
+                                    Edit
+                                </button>
+                                <div data-ng-show="editableForm.$visible">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                                        Save
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" data-ng-click="editableForm.$cancel()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading ">Controls</div>
+                <div class="panel-body">
+                    <div class="form-horizontal" method="get">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Text</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-text="user.name" class="">{{ user.name || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Select</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-select="user.status" e-ng-options="s.value as s.text for s in statuses">
+                                        {{ showStatus()}}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Textarea</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-textarea="user3.desc" e-rows="7" e-cols="40">
+                                        <pre>{{ user3.desc || 'no description' }}</pre>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Checkbox</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-checkbox="user4.remember" e-title="Remember?">
+                                        {{ user4.remember && "Remember me!" || "Don't remember" }}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Checklist</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-checklist="user5.status" e-ng-options="s.value as s.text for s in statuses2">
+                                        {{ showStatus2()}}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Radiolist</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-radiolist="user6.status" e-ng-options="s.value as s.text for s in statuses">
+                                        {{ showStatus3()}}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Date</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-bsdate="user7.dob" e-datepicker-popup="dd-MMMM-yyyy">
+                                        {{ (user7.dob | date:"dd/MM/yyyy") || 'empty'}}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Time</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-bstime="user8.time" e-show-meridian="false" e-minute-step="10">
+                                        {{ (user8.time | date:"HH:mm") || 'empty'}}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Typeahead</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-text="user.state" e-typeahead="state for state in states | filter:$viewValue | limitTo:8">
+                                        {{ user.state || 'empty' }}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading ">HTML5</div>
+                <div class="panel-body">
+                    <div class="form-horizontal" method="get">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-email="user2.email">{{ user2.email || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tel:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-tel="user2.tel" e-pattern="\d{3}\-\d{2}\-\d{2}" e-title="xxx-xx-xx">{{ user2.tel || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Number:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-number="user2.number" e-min="18">{{ user2.number || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Range:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-range="user2.range" e-step="5">{{ user2.range || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Url</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-url="user2.url">{{ user2.url || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Search:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-search="user2.search">{{ user2.search || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Color:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-color="user2.color">{{ user2.color || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Date:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-date="user2.date">{{ user2.date || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Time:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-time="user2.time">{{ user2.time || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Datetime:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-datetime="user2.datetime">{{ user2.datetime || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Month:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-month="user2.month">{{ user2.month || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sep sep-dashed row-fix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Week:</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <a href="#" editable-week="user2.week">{{ user2.week || 'empty' }}</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

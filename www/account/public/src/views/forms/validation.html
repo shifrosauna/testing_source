@@ -1,0 +1,325 @@
+<div class="wrapper" data-ng-controller="FormValidationCtrl">
+    <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <form name="registerForm" class="form-validation" no-validate>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <span>Register (core AngularJS validate)</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Username <em class="text-muted">(allow 'a-zA-Z0-9', 4-10 length)</em></label>
+                                <input type="text" class="form-control" data-ng-model="register.name" ng-pattern="/^[a-zA-Z0-9]{4,10}$/" required >
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" data-ng-model="register.email" required >
+                            </div>
+                            <div class="row form-group row-fix clearfix">
+                                <div class="col-sm-6">
+                                    <label>Enter password</label>
+                                    <input type="password" class="form-control" name="password" data-ng-model="register.password" required >   
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Confirm password</label>
+                                    <input type="password" class="form-control" name="confirm_password" required data-ng-model="register.confirm_password" ui-validate=" '$value==register.password' " ui-validate-watch=" 'register.password' ">
+                                    <span data-ng-show='registerForm.confirm_password.$error.validator'>Passwords do not match!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="text" class="form-control" placeholder="XXXX XXXX" data-ng-model="register.phone" ng-pattern="" required >
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox" >
+                                    <label class="app-checkbox">
+                                        <input type="checkbox" data-ng-model="register.agree" required> 
+                                        <i></i>
+                                        I agree to the <a href class="text-info">Terms of Service</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-primary btn-rounded" ng-disabled="registerForm.$invalid">Submit</button>
+                        </footer>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <form name="form-contact" class="form-validation" novalidate>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <span>Contact (AngularJS validate after click submit)</span>
+                        </div>
+                        <div class="panel-body">                     
+                            <div class="form-group row-fix clearfix">
+                                <div class="col-sm-6">
+                                    <label>Your name</label>
+                                    <input type="text" class="form-control" placeholder="Name" data-ng-model="formSubmit.name" required validator="[requiredSubmit]">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Enter email" data-ng-model="formSubmit.email" required validator="[requiredSubmit]">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Your website</label>
+                                <input type="url" class="form-control" placeholder="http://" data-ng-model="formSubmit.url" required validator="[requiredSubmit]">
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="6" placeholder="Type your message" data-ng-model="formSubmit.message" validator="[requiredSubmit]"></textarea>
+                            </div>
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="button" class="btn btn-default btn-rounded" data-ng-click="formSubmit.reset()">Reset</button>
+                            <button type="submit" class="btn btn-primary btn-rounded" data-ng-click="formSubmit.submit()">Submit</button>
+
+                        </footer>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <form name="formValidate" class="form-horizontal form-validation">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Basic constraints
+                        </div>
+                        <div class="panel-body">                    
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Required</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="required field" data-ng-model="f.a" required >
+                                    <select class="form-control m-t-10" data-ng-model="f.b" required >
+                                        <option value="">Please choose</option>
+                                        <option value="foo">Foo</option>
+                                        <option value="bar">Bar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Min Length</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="minlength = 5" data-ng-model="f.d" ng-minlength="5" required>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Max Length</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="maxlength = 5" data-ng-model="f.e" ng-maxlength="5" required>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Range Length</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="minlength = 5 maxlength = 10" data-ng-model="f.f" ng-minlength="5" ng-maxlength="10" required>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Min</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="min = 5" data-ng-model="f.g" ui-validate=" '$value >= 5' " required>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Max</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="max = 5" data-ng-model="f.h" ui-validate=" '$value <= 5' " required>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Range</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="min = 5 max = 10" data-ng-model="f.i" ui-validate="{ a:'$value >= 5', b:'$value <= 10' }" required>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">RegExp</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="hexa color code" data-ng-model="f.j" ng-pattern="/^#(?:[0-9a-fA-F]{3}){1,2}$/" required>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </footer>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <form name="forma" class="form-horizontal form-validation">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Type constraints
+                        </div>
+                        <div class="panel-body">                    
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" placeholder="email" data-ng-model="g.a" required >    
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Url</label>
+                                <div class="col-sm-9">
+                                    <input type="url" class="form-control" placeholder="http://" data-ng-model="g.b" required >
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Digits</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="digits" data-ng-model="g.c" ng-pattern="/^[0-9]+$/" required >
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Number</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="number" data-ng-model="g.d" required >
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Alphanum</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="alphanumeric string" data-ng-model="g.e" ng-pattern="/^[a-zA-Z]+$/" required >
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Date Iso</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="YYYY-MM-DD" data-ng-model="g.f" ng-pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/" required >
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Phone</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="(XXX) XXXX XXX" data-ng-model="g.g" ng-pattern="/\([0-9]{3}\) ([0-9]{3}) ([0-9]{3})$/" required >
+                                </div>
+                            </div>            
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Equal To</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-sm-6"><input type="text" name="foo" class="form-control" data-ng-model="g.h" required></div>
+                                        <div class="col-sm-6"><input type="text" name="confirm_foo" class="form-control" required data-ng-model="g.i" ui-validate=" '$value==g.h' " ui-validate-watch=" 'g.h' ">
+                                            <span data-ng-show='forma.confirm_foo.$error.validator'>Not match!</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sep sep-dashed row-fix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Black-list</label>
+                                <div class="col-sm-9">
+                                    <input type="email" name="email" class="form-control" placeholder="input 'bad@domain.com'" data-ng-model="g.j" ui-validate="{blacklist : 'notBlackListed($value)' }" required>
+                                    <span data-ng-show='forma.email.$error.blacklist'>This e-mail is black-listed!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </footer>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Flat form angular validation
+                    </div>
+                    <div class="panel-body">
+                        <form name="flatForm" class="form-validation">
+                            <div class="form-group-alt-attached">
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="form-group form-group-alt">
+                                            <label>First name *</label>
+                                            <input type="text" class="form-control" placeholder="John" data-ng-model="flatForm.fname" required>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="form-group form-group-alt">
+                                            <label>Last name *</label>
+                                            <input type="text" class="form-control" placeholder="Doe" data-ng-model="flatForm.lname" required>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-alt">
+                                            <label>Address *</label>
+                                            <input type="text" class="form-control" placeholder="350 Fifth Avenue, 34th floor" data-ng-model="flatForm.address" required>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-4">
+                                        <div class="form-group form-group-alt">
+                                            <label>Angular</label>
+                                            <input type="number" class="form-control" placeholder="1-5" data-ng-model="flatForm.ang">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-4">
+                                        <div class="form-group form-group-alt">
+                                            <label>NodeJS</label>
+                                            <input type="number" class="form-control" placeholder="1-5" data-ng-model="flatForm.node">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-4">
+                                        <div class="form-group form-group-alt">
+                                            <label>Backbone</label>
+                                            <input type="number" class="form-control" placeholder="1-5" data-ng-model="flatForm.back">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-alt">
+                                            <label>Comment</label>
+                                            <textarea  class="form-control" placeholder="your comment here" style="height:70px;" data-ng-model="flatForm.comment"></textarea>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox p-r-l-10">
+                                <label class="app-checkbox">
+                                    <input type="checkbox" data-ng-model="flatForm.agree" required> 
+                                    <i></i>
+                                    I agree *
+                                </label>
+                                <button type="submit" class="btn btn-sm btn-primary btn-rounded pull-right" ng-disabled="flatForm.$invalid">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

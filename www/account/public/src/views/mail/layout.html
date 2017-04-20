@@ -1,0 +1,20 @@
+<div class="app-wrapper" data-ng-class="{'container':$root.app.settings.layoutBoxed}">
+    <!-- start: Header content -->
+    <div class="app-header">
+        <div data-ng-include src="'views/app.header.html'"></div>
+    </div>
+    <!-- end: Header content -->
+
+    <!-- start: Sidebar content -->
+    <div class="app-aside">
+        <div class="aside-wrapper">
+            <div class="nav-wrapper" data-ng-include src="'views/mail/sidebar.html'"></div>
+        </div>
+    </div>
+    <!-- end: Sidebar content -->
+
+    <!-- start: App(ui-router) content -->
+    <div class="app-content" data-ng-include src="'views/mail/mail.html'"></div>
+    <!-- end: App(ui-router) content -->
+
+</div>

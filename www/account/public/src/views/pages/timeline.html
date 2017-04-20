@@ -1,0 +1,212 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Timeline</h1>
+</div>
+<div class="wrapper" ng-init="timelinetest = false;timelineblock = false">
+    <div class="m-b-10">
+        <button data-ng-click="timelinetest = !timelinetest" class="btn btn-default btn-rounded" data-ng-class="{active:!timelinetest}">Center</button>
+        <button data-ng-click="timelineblock = !timelineblock" class="btn btn-default btn-rounded" data-ng-class="{active:timelineblock}">Block</button>
+    </div>
+    <div class="timeline" data-ng-class="{center:timelinetest,blocked:timelineblock}">
+        <div class="timeline-heading"> <span>Today</span> </div>
+        <div class="timeline-panel ">
+            <div class="timeline-content b-success">
+                <div class="timeline-date">5s ago</div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <b>Gary Stone</b>
+                        <p>How are the wife and kids, Taylor?</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content">
+                <div class="timeline-date">15min ago
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <div><a href="#" class="pull-left m-r-10">
+                                <img src="img/avatar5.jpg" class="avatar thumb img-circle" alt="">
+                            </a>Gary Stone <small class="text-muted">San Francisco, CA</small>
+                        </div>
+                        <p><a href="#" class="btn btn-primary btn-xs">Added to circle</a></p>
+                        <blockquote class="b-info no-m">
+                            <p class="h5 no-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content b-info">
+                <div class="timeline-date">3h ago
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <b>Profile updates</b>
+                        <p>3 more people joined your campaign.</p>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="off bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <button type="button" class="btn btn-success btn-rounded btn-sm"><strong>+10</strong></button>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content b-danger">
+                <div class="timeline-date">10h ago
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <p class="clearfix">
+                            <span class="pull-right">
+                                <span class="text-success">$19,000
+                                </span>/ $100,000
+                            </span>
+                        </p>
+                        <small>DONATION PROGRESS </small>
+                        <div class="progress progress-xs no-margin">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content">
+                <div class="timeline-date">10h ago
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <img src="img/gallery/dummy8.jpg" class="img-responsive">
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content">
+                <div class="timeline-date">13.11.2014
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        Added to IT group
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <blockquote class="b-danger no-m">
+                            <p class="h5 no-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-heading"> Thursday
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content">
+                <div class="timeline-date">13.11.2014
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="mg-b-sm">
+                            <a href="#" class="pull-left m-r-5"><img src="img/avatar1.jpg" class="avatar thumb-xxs img-circle" alt=""></a>
+                            <div class="h6 p-t-3 no-m">
+                                <b>Gary Stone</b>
+                                <span class="text-muted pull-right">Yesterday, 13:48</span>
+                                <div class="text-muted text-xs"><i class="icon-map-marker pd-r-xs"></i>San Francisco, CA </div>
+                            </div>
+                            <p class="m-t-10">Insanity: doing the same thing over and over again and expecting different results.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content b-warning">
+                <div class="timeline-date">13.11.2014
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <h5 class="no-m m-b-10">Generate invoices </h5>
+                        <ul class="list-group list-group-gap list-group-sm no-m">
+                            <li class="list-group-item b-success">
+                                <div class="text-muted">Invoice #43344334</div>
+                                <div class="text-success">Paid</div>
+                            </li>
+                            <li class="list-group-item">
+                                Generated invoices <span class="badge">14</span>
+                                <div class="text-muted">Now</div>
+                            </li>
+                            <li class="list-group-item b-warning">
+                                <div class="text-muted">Invoice fail #2423</div>
+                                <div class="text-warning">Warning</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content">
+                <div class="timeline-date">15min ago
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        <div><a href="#" class="pull-left m-r-10">
+                            <img src="img/avatar5.jpg" class="avatar img-circle thumb" alt="">
+                            </a>Gary Stone <small class="text-muted">San Francisco, CA</small>
+                        </div>
+                        <p><a href="#" class="btn btn-primary btn-xs">Added to circle</a></p>
+                        <blockquote class="b-info no-m">
+                            <p class="h5 no-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-panel">
+            <div class="timeline-content">
+                <div class="timeline-date">13.11.2014
+                </div>
+                <section class="panel">
+                    <div class="panel-body">
+                        Added to IT group
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="on bottom"></i>
+                        </span>
+                        <span class="avatar m-r-3">
+                            <img src="img/small_avatar.jpg" class="img-circle thumb-xxs">
+                            <i class="away bottom"></i>
+                        </span>
+                        <blockquote class="b-danger no-m">
+                            <p class="h5 no-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="timeline-heading"> <a>
+                More
+            </a>
+        </div>
+    </div>
+</div>

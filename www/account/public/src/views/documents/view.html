@@ -1,0 +1,49 @@
+<div class="p-10 visible-xs box-border-b-light bg-light">
+    <a ui-sref="app.documents.all">
+        <span><i class="fa fa-angle-left fa-fw"></i> back</span>
+    </a>
+</div>
+<div class="box-border-b-light">  
+    <div class="input-group box-header bg-white">     
+        <span class="no-m input-group-btn box-border-r-light">
+            <button class="btn no-bg btn-text" type="button" data-ng-if="!editMode" data-ng-click="setEditMode(true)" >Edit</button>
+            <button class="btn no-bg btn-text" type="button" data-ng-click="save()" data-ng-if="editMode">Done</button>
+        </span>
+        <input type="text" class="form-control flat input-lg header-height" placeholder="Document title" data-ng-model="document.title" ng-readonly="!editMode">
+        <span class="h-100 no-m input-group-btn box-border-l-light bg-white item ">
+            <button class="btn no-bg btn-text " type="button" data-ng-click="delDocument()">
+                <i class="fa fa-times text-danger"></i>
+            </button>
+            <button class="btn no-bg btn-text " type="button" data-ng-click="getOptions()" data-ng-class="{'bg-light':optionsShow}">
+                <i class="fa fa-comment"></i>
+            </button>
+            <span class="wrapper top right p-5">
+                <span class="text-xs text-primary b-rad-15 p-r-l-5 p-t-b-2 b-primary b-solid b-1px ">
+                    {{document.comments.length}}
+                </span>
+            </span>
+        </span>
+    </div>
+</div>
+<div class="table-row">
+    <div class="table-cell bg-white">
+        <div class="a-box">
+            <div class="document">
+                <div text-angular data-ng-model="document.content" data-ng-if="editMode"></div>
+                <div data-ng-if="!editMode" ng-dblclick="setEditMode(true)">
+                    <div ng-bind-html="document.content" class="form-control" style="padding: 25px 21px 0 52px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="p-5 box-border-t-light clearfix border-xs-sep-b bg-light lt" style="padding:7px 12px 8px 12px">
+    <div class="pull-left inline-block relative">
+        <div class="text-md">Created by: {{document.created_by}}</div>
+        <div class="text-xs text-muted" title="{{document.created_date}}"><i class="fa fa-clock-o"></i> <span am-time-ago="document.created_date"></span></div>
+    </div>
+    <div class="pull-right inline-block">
+        <div class="text-md">Last update: {{document.last_update[document.last_update.length - 1].user}}</div>
+        <div class="text-xs text-muted pull-right" title="{{document.created_date}}"><i class="fa fa-clock-o"></i> <span am-time-ago="document.last_update[document.last_update.length-1].datetime"></span></div>
+    </div>
+</div>

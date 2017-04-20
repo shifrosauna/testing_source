@@ -1,0 +1,57 @@
+<!-- start: App Search -->
+<div class="app-search-wrapper">
+    <div class="p-10 no-p-b">
+        <div class="input-holder item bg-light b-rad-6 no-b-i">
+            <i class="fa fa-search fa-2x tosearch"></i>
+            <input type="text" class="form-control no-border no-bg no-shadow" placeholder="Search..." data-ng-model="searchText" autofocus="">
+            <div class="wrapper top right">
+                <div class="p-t-3">
+                    <button type="button" class="btn btn-link search-close">
+                        <i class="fa fa-times fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="">
+        <div class="p-r-l-15 p-b-3">
+            <div class="checkbox">
+                <label class="app-checkbox">
+                    <input type="checkbox" checked=""> 
+                    <i></i>
+                    Search within app 
+                </label>
+                <label class="app-checkbox">
+                    <input type="checkbox"> 
+                    <i></i>
+                    Extended 
+                </label>
+            </div>
+        </div>
+        <div data-ng-show="searchText.length >= 1">
+            <div class="font-bold simple-list-header bg-light lt">Suggestions</div>
+            <ul class="simple-list no-bg b-grey no-b-i no-m-b" >
+                <li>
+                    <a>{{searchText}}-1</a>
+                </li>
+                <li>
+                    <a>{{searchText}}-2</a>
+                </li>
+            </ul>
+        </div>
+        <div data-ng-show="searchText.length >= 3">
+            <div class="font-bold simple-list-header bg-light lt">Results</div>
+            <ul class="simple-list no-bg b-grey no-b-i no-m-b">
+                <li>
+                    <i class="fa fa-search"></i> <span class="h4 no-m">Lorem ipsum dolor</span>
+                    <div class="text-muted text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inci</div>
+                </li>
+                <li>
+                    <i class="fa fa-search"></i> <span class="h4 no-m">sed do eiusmod tempor inci</span>
+                    <div class="text-muted text-xs">adipiscing elit, se lorem ipsum dolor sit amet, consectetur adipiscing elit, </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- end: App Search -->

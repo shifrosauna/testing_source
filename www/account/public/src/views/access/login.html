@@ -1,0 +1,25 @@
+<div class="bg-themeBlue h-100"> <!--  -->
+    <div class="container text-center animated fadeIn bg-themeBlue">
+        <div class="loginBox">
+            <div class="logoPlace text-center" style="height:125px;line-height: 125px;">
+                <img src="img/logos/mobioffers_logo_big.png">
+            </div>
+            <div class="text-muted m-b-5">Login to MobiOffers</div>
+            <form ng-submit="Login()" ng-controller="AccessLoginCtrl" class="relative">
+                <div class="form-group" data-ng-class="{'has-error': form.errors.email}">
+                    <input type="text" data-ng-model="form.email" class="form-control form-control-line" placeholder="Username or Email"  />
+                </div>
+                <div class="form-group item" data-ng-class="{'has-error': form.errors.pass}">
+                    <input type="password" data-ng-model="form.pass" class="form-control form-control-line" placeholder="Password"/>
+                    <div class="wrapper right top">
+                        <input type="submit" class="btn btn-primary btn-line btn-rounded" value="Login" />
+                    </div>
+                </div>
+            </form>
+            <div class="clearfix">
+                <a ui-sref="access.forget" class="pull-right">Forgot password?</a>
+                <a ui-sref="access.signup" class="pull-left">Signup now</a>
+            </div>
+        </div>
+    </div>
+</div>

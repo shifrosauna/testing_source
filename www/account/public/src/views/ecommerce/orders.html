@@ -1,0 +1,494 @@
+<div class="section-header clearfix">
+    <h1 class="h3 section-text pull-left">Orders</h1>
+    <span class="pull-right text-success h3 no-m"><i class="fa fa-long-arrow-up"></i> 44</span>
+</div>
+<div class="bg-white b-b-b-l" data-ng-controller="FootableCtrl">
+            <div class="box-border-b-light">
+                <div class="row no-m">
+                    <div class="col-sm-7 no-p">
+                        <div class="p-10">
+                            <input id="filter" type="text" class="form-control m-r-10" placeholder="Search..."/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 no-p">
+                        <div class="p-10">
+                            <select class="filter-status form-control m-r-10" data-ng-model='filter.status' ng-change="filterByStatus()">
+                                <option></option>
+                                <option value="active">active</option>
+                                <option value="disabled">disabled</option>
+                                <option value="suspended">suspended</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 no-p">
+                        <div class="p-10">
+                             <a class="btn btn-default display-block" title="clear filter" data-ng-click="clearFilter()">clear</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table footable no-m table-vertical-middle" data-filter="#filter" data-before-filtering="filteringEventHandler" data-page-size="15">
+                <thead>
+                    <tr>
+                        <th data-type="numeric" data-sort-initial="true">
+                            ID
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th data-sort-ignore="true">
+                            Last Name
+                        </th>
+                        <th data-hide="phone,tablet">
+                            Product
+                        </th>
+                        <th class="text-center">
+                            Quantity
+                        </th>
+                        <th class="text-center">
+                            Amount
+                        </th>
+                        <th data-type="numeric" data-hide="phone,tablet" class="text-center">
+                            Date
+                        </th>
+                        <th data-hide="phone" class="text-center">
+                            Status
+                        </th>
+                        <th data-sort-ignore="true" data-hide="phone" style="width:10px;">
+                            &nbsp;
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>Isidra</td>
+                        <td><a href="#">Boudreaux</a></td>
+                        <td>Coffe maker</td>
+                        <td class="text-center">23</td>
+                        <td class="text-center">332.00$</td>
+                        <td data-value="78025368997" class="text-center">22 Jun 1972</td>
+                        <td data-value="1" class="text-center"><span class="status-metro status-active" title="Active"><span class="label label-success">active</span></span></td>
+                        <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Shona</td>
+                        <td>Woldt</td>
+                        <td><a href="#">Nice server</a></td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">44.00$</td>
+                        <td data-value="370961043292" class="text-center">3 Oct 1981</td>
+                        <td data-value="2" class="text-center"><span class="status-metro status-disabled" title="Disabled"><span class="label label-danger">disabled</span></span></td>
+                        <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Granville</td>
+                        <td>Leonardo</td>
+                        <td>Airplane</td>
+                        <td class="text-center">2</td>
+                        <td class="text-center">3423.00$</td>
+                        <td data-value="-22133780420" class="text-center">19 Apr 1969</td>
+                        <td data-value="3" class="text-center"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Easer</td>
+                        <td>Dragoo</td>
+                        <td>Skateboard</td>
+                        <td class="text-center">323</td>
+                        <td class="text-center">3.00$</td>
+                        <td data-value="250833505574" class="text-center">13 Dec 1977</td>
+                        <td data-value="1" class="text-center"><span class="status-metro status-active" title="Active"><span class="label label-success">active</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Maple</td>
+                        <td>Halladay</td>
+                        <td>House</td>
+                        <td class="text-center">1</td>
+                        <td class="text-center">434.00$</td>
+                        <td data-value="694116650726" class="text-center">30 Dec 1991</td>
+                        <td data-value="3" class="text-center"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Maxine</td>
+                        <td><a href="#">Woldt</a></td>
+                        <td><a href="#">Bicycle</a></td>
+                        <td class="text-center">3</td>
+                        <td class="text-center">76.00$</td>
+                        <td data-value="561440464855" class="text-center">17 Oct 1987</td>
+                        <td data-value="2" class="text-center"><span class="status-metro status-disabled" title="Disabled"><span class="label label-danger">disabled</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Lorraine</td>
+                        <td>Mcgaughy</td>
+                        <td>Ferrari</td>
+                        <td class="text-center">2</td>
+                        <td class="text-center">3424.00$</td>
+                        <td data-value="437400551390" class="text-center">11 Nov 1983</td>
+                        <td data-value="2" class="text-center"><span class="status-metro status-disabled" title="Disabled"><span class="label label-danger">disabled</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Lizzee</td>
+                        <td><a href="#">Goodlow</a></td>
+                        <td>Bladeserver</td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">423423.00$</td>
+                        <td class="text-center" data-value="-257733999319">1 Nov 1961</td>
+                        <td class="text-center" data-value="3"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Judi</td>
+                        <td>Badgett</td>
+                        <td>Nice thing</td>
+                        <td class="text-center">1</td>
+                        <td class="text-center">55.00$</td>
+                        <td class="text-center" data-value="362134712000">23 Jun 1981</td>
+                        <td class="text-center" data-value="1"><span class="status-metro status-active" title="Active"><span class="label label-success">active</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Lauri</td>
+                        <td>Hyland</td>
+                        <td>Airplane</td>
+                        <td class="text-center">121</td>
+                        <td class="text-center">5435.00$</td>
+                        <td class="text-center" data-value="500874333932">15 Nov 1985</td>
+                        <td class="text-center" data-value="3"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Isidra</td>
+                        <td><a href="#">Boudreaux</a></td>
+                        <td>Car</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="78025368997">22 Jun 1972</td>
+                        <td class="text-center" data-value="1"><span class="status-metro status-active" title="Active"><span class="label label-success">active</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Shona</td>
+                        <td>Woldt</td>
+                        <td><a href="#">Habba baba</a></td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="370961043292">3 Oct 1981</td>
+                        <td class="text-center" data-value="2"><span class="status-metro status-disabled" title="Disabled"><span class="label label-danger">disabled</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Easer</td>
+                        <td>Dragoo</td>
+                        <td>Wall</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="250833505574">13 Dec 1977</td>
+                        <td class="text-center" data-value="1"><span class="status-metro status-active" title="Active"><span class="label label-success">active</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Maple</td>
+                        <td>Halladay</td>
+                        <td>Houser</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="694116650726">30 Dec 1991</td>
+                        <td class="text-center" data-value="3"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Maxine</td>
+                        <td><a href="#">Woldt</a></td>
+                        <td><a href="#">THung</a></td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="561440464855">17 Oct 1987</td>
+                        <td class="text-center" data-value="2"><span class="status-metro status-disabled" title="Disabled"><span class="label label-danger">disabled</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Lorraine</td>
+                        <td>Mcgaughy</td>
+                        <td>Thing</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="437400551390">11 Nov 1983</td>
+                        <td class="text-center" data-value="2"><span class="status-metro status-disabled" title="Disabled"><span class="label label-danger">disabled</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Lizzee</td>
+                        <td><a href="#">Goodlow</a></td>
+                        <td>Porsche</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="-257733999319">1 Nov 1961</td>
+                        <td class="text-center" data-value="3"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Judi</td>
+                        <td>Badgett</td>
+                        <td>Terminator</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="362134712000">23 Jun 1981</td>
+                        <td class="text-center" data-value="1"><span class="status-metro status-active" title="Active"><span class="label label-success">active</span></span></td>
+                    <td>
+                            <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Lauri</td>
+                        <td>Hyland</td>
+                        <td>Thing</td>
+                        <td class="text-center">33</td>
+                        <td class="text-center">332.00$</td>
+                        <td class="text-center" data-value="500874333932">15 Nov 1985</td>
+                        <td class="text-center" data-value="3"><span class="status-metro status-suspended" title="Suspended"><span class="label label-warning">suspended</span></span></td>
+                    <td>
+                           <div class="dropdown" dropdown>
+                                <button dropdown-toggle class="btn btn-link btn-primary btn-rounded" type="button">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right w-auto">
+                                    <li><a class="text-primary"><i class="fa fa-info fa-fw"></i> Info</a></li>
+                                    <li><a class="text-primary"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                                    <li><a class="text-danger"><i class="fa fa-times fa-fw"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+                <tfoot class="hide-if-no-paging">
+                    <tr>
+                        <td colspan="9" align="center">
+                            <ul class="pagination pagination-sm"></ul>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+</div>

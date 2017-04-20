@@ -1,0 +1,38 @@
+<div data-ng-hide="selectedEmail.length">
+    <div class="m-b-10">
+        <div>
+            <span class="h3">{{selectedEmail.title}}</span>
+            <span class="pull-right" ></span>
+        </div>
+        <div class="text-muted m-b-10 m-t-3">
+            <span am-time-ago="selectedEmail.date"></span>
+        </div>
+        <div class="m-b-5">
+            From: {{selectedEmail.sender}} example@gmail.com <a><i class="fa fa-plus-square-o f-14"></i></a>
+        </div>
+        <div>
+            To: example2@gmail.com
+        </div>
+    </div>
+
+    <ul class="list-unstyled tag-list" data-ng-if="selectedEmail.attachments">
+        <li>
+            <span class="info">
+                <i class="fa fa-paperclip"></i> 
+            </span>
+        </li>
+        <li class="">
+            <a><i class="fa fa-file-text-o"></i> file1.pdf <span class="text-muted text-xs">1.2MB</span></a> 
+        </li>
+        <li class="">
+            <a><i class="fa fa-file-text-o"></i> file2.doc <span class="text-muted text-xs">0.65MB</span></a> 
+        </li>
+        <li class="">
+            <a><i class="fa fa-file-text-o"></i> file3.txt <span class="text-muted text-xs">1.5KB</span></a> 
+        </li>
+    </ul>
+    <div class="line-separator"></div>
+    <div class="" ng-bind-html="selectedEmail.content">
+
+    </div>
+</div>

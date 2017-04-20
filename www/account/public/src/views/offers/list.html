@@ -1,0 +1,37 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Offers List</h1>
+</div>
+<div class="wrapper" data-ng-controller="ListOffersCtrl">
+    <div class="panel no-border-i">
+        <div class="panel-body no-p">
+            <table class="table table-advanced table-hover no-m">
+                <thead>
+                <tr>
+                    <th>
+                        <div>Logo</div>
+                    </th>
+                    <th>
+                        <div>Name</div>
+                    </th>
+                    <th>
+                        <div>Preview Url</div>
+                    </th>
+                    <th style="width:50px;"></th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="offer in offers">
+                <tr>
+                    <td><img src="{{offer.icon}}" alt="{{offer.translates.ru.name}}"></td>
+                    <td><a href="#/app/offers/view/{{offer.id}}">{{offer.translates.ru.name}}</a></td>
+                    <td>{{offer.previewUrl}}</td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <a href="#/app/offers/edit/{{offer.id}}"><i class="fa fa-pencil"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="section-header">
+    <h1 class="h3 section-text">Image crop</h1>
+</div>
+<div class="wrapper" data-ng-controller="ImgCropCtrl">  
+    <div class="m-b-10">Select an image file: <input type="file" id="fileInput" data-ng-model="imgfile"></div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="cropArea">
+                <img-crop image="myImage" result-image="myCroppedImage" area-type="{{cropType}}"></img-crop>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class='croppedImg'>
+                <img ng-src="{{myCroppedImage}}" /></div>
+            </div>
+        </div>
+        <div class='m-t-10'>
+            <div class="btn-group">
+                <label class="btn btn-default btn-rounded" data-ng-model="cropType" btn-radio="'circle'">Circle</label>
+                <label class="btn btn-default btn-rounded" data-ng-model="cropType" btn-radio="'square'">Square</label>
+            </div>
+        </div>
+</div>

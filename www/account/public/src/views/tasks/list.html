@@ -1,0 +1,2 @@
+<div ng-repeat="list in tasks| filter:filterObj" class="task-list-section m-b-10" data-ng-class="{completed:!list.todos.length && list.completed.length}" data-ng-include="'views/tasks/view.html'">
+</div>
